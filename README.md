@@ -33,8 +33,8 @@ Commit your changes: git commit -m "Your commit message".
 Push your changes to your forked repository: git push origin feature/your-feature-name.
 Create a pull request to the main repository, explaining your changes and why they are beneficial.
 
-## License
-This project is licensed under the MIT License.
+<!-- ## License
+This project is licensed under the MIT License. -->
 
 ## Contact
 If you have any questions, suggestions, or issues, please feel free to contact us at Ujjw4l.singh@gmail.com or open an issue in the repository. We appreciate your feedback and contributions!
