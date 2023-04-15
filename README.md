@@ -19,10 +19,10 @@ Welcome to the repository for the Restaurant Management App! This application is
 6. **Testing:** Jest and Enzyme for unit testing and integration testing
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/Lucverse/restaurant-management-app.git`
-2. Install dependencies: `npm install` in both the frontend and backend directories.
-3. Set up environment variables: Create a '.env' file in the backend directory with the required environment variables (e.g. database connection string, JWT secret, etc.).
-4. Start the application: `npm start` in both the frontend and backend directories.
+1. **Clone the repository:** `git clone https://github.com/Lucverse/restaurant-management-app.git`
+2. **Install dependencies:** `npm install` in both the frontend and backend directories.
+3. **Set up environment variables:** Create a '.env' file in the backend directory with the required environment variables (e.g. database connection string, JWT secret, etc.).
+4. **Start the application:** `npm start` in both the frontend and backend directories.
 
 ## Contributing
 We welcome contributions to the Restaurant Management App! If you would like to contribute, please follow these steps:
