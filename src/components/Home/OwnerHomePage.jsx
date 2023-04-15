@@ -1,7 +1,7 @@
 function OwnerHomePage(){
     return(
         <div>
-            <h1>Owner </h1>
+            <h1>Owner Home Page </h1>
         </div>
     )
 }
