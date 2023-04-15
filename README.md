@@ -18,25 +18,24 @@ Welcome to the repository for the Restaurant Management App! This application is
 
 ## Installation
 1. Clone the repository: ```git clone https://github.com/Lucverse/restaurant-management-app.git```
-2. Install dependencies: ```npm install in both the frontend and backend directories.```
+2. Install dependencies: ```npm install``` in both the frontend and backend directories.
 3. Set up environment variables: Create a '.env' file in the backend directory with the required environment variables (e.g. database connection string, JWT secret, etc.).
 4. Start the application: ```npm start``` in both the frontend and backend directories.
 
 ## Contributing
 We welcome contributions to the Restaurant Management App! If you would like to contribute, please follow these steps:
 
-Fork the repository.
+1. Fork the repository.
+2. Create a new branch for your contribution: git checkout -b feature/your-feature-name.
+3. Make your changes and test thoroughly.
+4. Commit your changes: git commit -m "Your commit message".
+5. Push your changes to your forked repository: git push origin feature/your-feature-name.
+6. Create a pull request to the main repository, explaining your changes and why they are beneficial.
 
-Create a new branch for your contribution: git checkout -b feature/your-feature-name.
-Make your changes and test thoroughly.
-Commit your changes: git commit -m "Your commit message".
-Push your changes to your forked repository: git push origin feature/your-feature-name.
-Create a pull request to the main repository, explaining your changes and why they are beneficial.
-
-## License
-This project is licensed under the MIT License.
+<!-- ## License
+This project is licensed under the MIT License. -->
 
 ## Contact
-If you have any questions, suggestions, or issues, please feel free to contact us at [Ujjw4l.singh@gmail.com] or open an issue in the repository. We appreciate your feedback and contributions!
+If you have any questions, suggestions, or issues, please feel free to contact us at Ujjw4l.singh@gmail.com or open an issue in the repository. We appreciate your feedback and contributions!
 
 Thank you for using the Restaurant Management App!
