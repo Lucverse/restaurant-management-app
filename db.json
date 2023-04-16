@@ -1,0 +1,83 @@
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Restaurant 1",
+      "menu": [
+        {
+          "id": 1,
+          "name": "Item 1",
+          "description": "Description of Item 1",
+          "price": 9.99
+        },
+        {
+          "id": 2,
+          "name": "Item 2",
+          "description": "Description of Item 2",
+          "price": 14.99
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Restaurant 2",
+      "menu": [
+        {
+          "id": 3,
+          "name": "Item 3",
+          "description": "Description of Item 3",
+          "price": 10.99
+        },
+        {
+          "id": 4,
+          "name": "Item 4",
+          "description": "Description of Item 4",
+          "price": 12.99
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Owner 1",
+      "email": "owner1@example.com",
+      "password": "password1",
+      "type": "staff",
+      "restaurantId": 1
+    },
+    {
+      "id": 2,
+      "name": "Owner 2",
+      "email": "owner2@example.com",
+      "password": "password2",
+      "type": "staff",
+      "restaurantId": 2
+    },
+    {
+      "id": 3,
+      "name": "Customer 1",
+      "email": "customer1@example.com",
+      "password": "password3",
+      "type": "customer"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 3,
+      "restaurantId": 1,
+      "items": [
+        {
+          "itemId": 1,
+          "quantity": 2
+        },
+        {
+          "itemId": 2,
+          "quantity": 1
+        }
+      ],
+      "total": 34.97
+    }
+  ]
+}

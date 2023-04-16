@@ -8,12 +8,12 @@ const routes = [
         path: '/',
     },
     {
-        title: 'Products',
+        title: 'Login',
         path: '/login',
     },
     {
-        title: 'Countries',
-        path: '/countries',
+        title: 'Sign Up',
+        path: '/signup',
     },
     {
         title: 'Account',
@@ -21,7 +21,7 @@ const routes = [
     },
 ];
 
-function Navbar(props) {
+function Navbar() {
     return (
         <nav className="nav">
             <NavLink to="/" exact="true" >

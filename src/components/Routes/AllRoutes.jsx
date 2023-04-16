@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import LoginPage from '../Login/LoginPage';
-import SignupPage from '../Login/SignupPage';
 import OwnerHomePage from '../Home/OwnerHomePage.jsx';
 import CustomerHomePage from '../Home/CustomerHomePage.jsx';
 import Pagenotfound from '../Pageoutfound/Pagenotfound';
+import SignupForm from '../SignUp/Signup';
+import LoginForm from '../Login/Login.jsx';
 
 function AllRoutes() {
   const isAuthenticated = true;
@@ -13,8 +13,8 @@ function AllRoutes() {
 
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage />} />
+      <Route path="/login" element={<LoginForm />} />
+      <Route path="/signup" element={<SignupForm />} />
       <Route path="/*" element={<Pagenotfound />} />
 
       {isAuthenticated && userRole === 'owner' && (
@@ -25,7 +25,7 @@ function AllRoutes() {
       )}
 
       {!isAuthenticated && (
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<LoginForm />} />
       )}
     </Routes>
   );
