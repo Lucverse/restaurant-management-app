@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
 import '../Login/LoginPage.css';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -11,7 +11,6 @@ const LoginForm = () => {
   const error = useSelector(state => state.auth.error);
   const user = useSelector(state=> state.auth.user);
   const navigate = useNavigate();
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser(email, password));

@@ -18,7 +18,7 @@ export const loginFailure = (error) => {
 
 export const loginUser = (email, password) => {
   return (dispatch) => {
-    fetch('http://localhost:3002', {
+    fetch(`${API_URL}/users`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'

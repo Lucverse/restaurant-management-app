@@ -1,24 +1,25 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import OwnerHomePage from '../Home/OwnerHomePage.jsx';
 import CustomerHomePage from '../Home/CustomerHomePage.jsx';
 import Pagenotfound from '../Pageoutfound/Pagenotfound';
 import SignupForm from '../SignUp/Signup';
 import LoginForm from '../Login/Login.jsx';
+import Account from '../Account/Account.js';
+import StaffHomePage from '../Home/StaffHomePage.jsx';
 
 function AllRoutes() {
-  const isAuthenticated = true;
-  const userRole = "customer";
-
+  const isAuthenticated = useSelector(state => state.auth.isLoggedIn);
+  const userRole = useSelector(state => state.auth.user?.userType || null);
   return (
     <Routes>
       <Route path="/login" element={<LoginForm />} />
       <Route path="/signup" element={<SignupForm />} />
       <Route path="/*" element={<Pagenotfound />} />
 
-      {isAuthenticated && userRole === 'owner' && (
-        <Route path="/" element={<OwnerHomePage />} />
+      {isAuthenticated && userRole === 'staff' && (
+        <Route path="/" element={<StaffHomePage />} />
       )}
       {isAuthenticated && userRole === 'customer' && (
         <Route path="/" element={<CustomerHomePage />} />
@@ -26,6 +27,9 @@ function AllRoutes() {
 
       {!isAuthenticated && (
         <Route path="/" element={<LoginForm />} />
+      )}
+      {isAuthenticated && (
+        <Route path="/account" element={<Account />} />
       )}
     </Routes>
   );
