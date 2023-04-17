@@ -5,9 +5,7 @@ import { useSelector } from 'react-redux';
 
 function Navbar() {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-    const userRole = useSelector(state => state.auth.user?.userType || null);
-
-    const renderLoginSignupLinks = () => {
+    const notLoggedInLinks = () => {
         return (
             <>
                 <NavLink to="/login">
@@ -20,30 +18,19 @@ function Navbar() {
         );
     };
 
-    const renderAccountLink = () => {
+    const LoggedInLinks = () => {
         return (
-            <NavLink to="/account">
-                Account
-            </NavLink>
+            <>
+                <NavLink to="/orders">
+                    Order History
+                </NavLink>
+                <NavLink to="/account">
+                    Account
+                </NavLink>
+            </>
         );
     };
 
-    const renderUserRoleLinks = () => {
-        if (userRole === 'owner') {
-            return (
-                <NavLink to="/restaurant-orders">
-                    Restaurant Orders
-                </NavLink>
-            );
-        } else if (userRole === 'customer') {
-            return (
-                <NavLink to="/customer-orders">
-                    Customer Orders
-                </NavLink>
-            );
-        }
-        return null;
-    };
 
     return (
         <nav className="nav">
@@ -54,8 +41,7 @@ function Navbar() {
                 <NavLink to="/">
                     Home
                 </NavLink>
-                {renderUserRoleLinks()}
-                {isLoggedIn ? renderAccountLink() : renderLoginSignupLinks()}
+                {isLoggedIn ? LoggedInLinks() : notLoggedInLinks()}
             </div>
         </nav>
     );
