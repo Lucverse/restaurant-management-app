@@ -43,7 +43,7 @@
       "name": "Owner 1",
       "email": "owner1@example.com",
       "password": "password1",
-      "type": "staff",
+      "role": "STAFF",
       "restaurantId": 1
     },
     {
@@ -51,7 +51,7 @@
       "name": "Owner 2",
       "email": "owner2@example.com",
       "password": "password2",
-      "type": "staff",
+      "role": "STAFF",
       "restaurantId": 2
     },
     {
@@ -59,7 +59,7 @@
       "name": "Customer 1",
       "email": "customer1@example.com",
       "password": "password3",
-      "type": "customer"
+      "role": "CUSTOMER"
     }
   ],
   "orders": [
