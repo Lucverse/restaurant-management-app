@@ -28,6 +28,9 @@ function AllRoutes() {
       {!isAuthenticated && (
         <Route path="/" element={<LoginForm />} />
       )}
+      {!isAuthenticated && (
+        <Route path="/*" element={<LoginForm />} />
+      )}
       {isAuthenticated && (
         <Route path="/account" element={<Account />} />
       )}
