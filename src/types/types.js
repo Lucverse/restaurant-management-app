@@ -1,5 +1,14 @@
+export const API_URL = 'http://localhost:3002';
+
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const UPDATE_USER = 'UPDATE_USER';
-export const API_URL = 'http://localhost:3002';
+
+
+export const FETCH_RESTAURANTS_REQUEST = "FETCH_RESTAURANTS_REQUEST";
+export const FETCH_RESTAURANTS_SUCCESS = "FETCH_RESTAURANTS_SUCCESS";
+export const FETCH_RESTAURANTS_FAILURE = "FETCH_RESTAURANTS_FAILURE";
+
+
+export const ADD_ITEM = "ADD_ITEM";

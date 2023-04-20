@@ -1,0 +1,44 @@
+.item-card {
+    display: flex;
+    width: 90%;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 5px;
+}
+.item-card-image {
+    flex: 1;
+    border-radius: 5px;
+}
+
+.item-card-content {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item-card-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.item-card-description {
+    margin-bottom: 5px;
+}
+
+.item-card-price {
+    font-weight: bold;
+}
+
+.item-card-button {
+    margin: auto;
+    width: 100px;
+    height: 30px;
+}
+.save-cancel-div{
+    display: flex;
+    justify-content: space-evenly;
+}

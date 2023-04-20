@@ -1,83 +1,48 @@
 {
   "restaurants": [
     {
-      "id": 1,
+      "id": "r1",
       "name": "Restaurant 1",
-      "menu": [
-        {
-          "id": 1,
-          "name": "Item 1",
-          "description": "Description of Item 1",
-          "price": 9.99
-        },
-        {
-          "id": 2,
-          "name": "Item 2",
-          "description": "Description of Item 2",
-          "price": 14.99
-        }
-      ]
+      "staff": "s1"
     },
     {
-      "id": 2,
+      "id": "r2",
       "name": "Restaurant 2",
-      "menu": [
-        {
-          "id": 3,
-          "name": "Item 3",
-          "description": "Description of Item 3",
-          "price": 10.99
-        },
-        {
-          "id": 4,
-          "name": "Item 4",
-          "description": "Description of Item 4",
-          "price": 12.99
-        }
-      ]
+      "staff": "s2"
     }
   ],
-  "users": [
+  "items": [
     {
-      "id": 1,
-      "name": "Owner 1",
-      "email": "owner1@example.com",
-      "password": "password1",
-      "role": "STAFF",
-      "restaurantId": 1
+      "id": "i1",
+      "name": "Item 1",
+      "restaurant" : "r1",
+      "description": "This is the description of item 1.",
+      "price": 70.99,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/A_formal_serving_of_wat_atop_injera_in_Brussels%2C_Belgium.jpg/330px-A_formal_serving_of_wat_atop_injera_in_Brussels%2C_Belgium.jpg"
     },
     {
-      "id": 2,
-      "name": "Owner 2",
-      "email": "owner2@example.com",
-      "password": "password2",
-      "role": "STAFF",
-      "restaurantId": 2
+      "id": "i2",
+      "name": "Item 2",
+      "restaurant" : "r1",
+      "description": "This is the description of item 2.",
+      "price": 12.99,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/A_formal_serving_of_wat_atop_injera_in_Brussels%2C_Belgium.jpg/330px-A_formal_serving_of_wat_atop_injera_in_Brussels%2C_Belgium.jpg"
     },
     {
-      "id": 3,
-      "name": "Customer 1",
-      "email": "customer1@example.com",
-      "password": "password3",
-      "role": "CUSTOMER"
-    }
-  ],
-  "orders": [
+      "id": "i3",
+      "name": "Item 3",
+      "restaurant" : "r2",
+      "description": "This is the description of item 3.",
+      "price": 15.99,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/A_formal_serving_of_wat_atop_injera_in_Brussels%2C_Belgium.jpg/330px-A_formal_serving_of_wat_atop_injera_in_Brussels%2C_Belgium.jpg"
+    },
     {
-      "id": 1,
-      "userId": 3,
-      "restaurantId": 1,
-      "items": [
-        {
-          "itemId": 1,
-          "quantity": 2
-        },
-        {
-          "itemId": 2,
-          "quantity": 1
-        }
-      ],
-      "total": 34.97
+      "id": "i4",
+      "name": "Item 4",
+      "restaurant" : "r2",
+      "description": "This is the description of item 4.",
+      "price": 20.99,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/A_formal_serving_of_wat_atop_injera_in_Brussels%2C_Belgium.jpg/330px-A_formal_serving_of_wat_atop_injera_in_Brussels%2C_Belgium.jpg"
     }
   ]
 }
