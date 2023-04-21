@@ -1,11 +1,11 @@
+.customer-home-main{
+    width: 95%;
+    margin: auto;
+}
 .restaurant-main-div {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
-}
-
-.rest-near-you {
-    padding-left: 50px;
 }
 /* pagination */
 .pagination {
@@ -45,7 +45,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 .filter-container label {

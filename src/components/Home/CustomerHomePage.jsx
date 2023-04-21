@@ -37,7 +37,7 @@ function CustomerHomePage() {
     };
 
     return (
-        <div>
+        <div className="customer-home-main">
             <h1 className="rest-near-you">Restaurants Near You ({totalrest})</h1>
             <div className="filter-container">
                 <label htmlFor="type">Filter by Type:</label>

@@ -7,7 +7,7 @@ function RestaurantPage() {
     const { restaurantName } = useParams();
     const [items, setItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(2);
+    const [itemsPerPage, setItemsPerPage] = useState(4);
 
     useEffect(() => {
         const fetchItemsData = async () => {
