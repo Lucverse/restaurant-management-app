@@ -58,7 +58,7 @@ const ItemCard = ({ name, imageUrl, description, price, onEditClick }) => {
                     <>
                         <p className="item-card-name">{name}</p>
                         <p className="item-card-description">{description}</p>
-                        <p className="item-card-price">${price}</p>
+                        <p className="item-card-price">₹{price}</p>
                     </>
                 )}
                 {isEditing ? (
