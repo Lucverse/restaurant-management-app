@@ -15,6 +15,7 @@ const ItemCard = ({ name, imageUrl, description, price, onEditClick }) => {
         setIsEditing(false);
     };
     const handleSaveClick = () => {
+        console.log(editedName);
         onEditClick(editedName, editedDescription, editedPrice);
         setIsEditing(false);
     };
