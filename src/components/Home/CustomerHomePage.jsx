@@ -1,6 +1,7 @@
 import { API_URL } from "../../types/types";
 import { useEffect, useState } from "react";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
+import "./customherhomepage.css"
 function CustomerHomePage() {
     const [restaurant, setRestaurant] = useState([]);
     useEffect(() => {
@@ -17,13 +18,16 @@ function CustomerHomePage() {
     }, []);
     return (
         <div>
-            <h1>Restaurants For You</h1>
-            {restaurant.map((item) => (
-                <RestaurantCard
-                    key={item.id}
-                    restaurantName={item.restaurantName} 
-                    id={item._id}/>
-            ))}
+            <h1>Restaurants Near You</h1>
+            <div className="restaurant-main-div">
+                {restaurant.map((item) => (
+                    <RestaurantCard
+                        key={item.id}
+                        restaurantName={item.restaurantName}
+                        rating={item.rating}
+                        id={item._id} />
+                ))}
+            </div>
         </div>
     )
 }
