@@ -7,6 +7,7 @@
     overflow: hidden;
     padding: 5px;
 }
+
 .item-card-image {
     flex: 1;
     border-radius: 5px;
@@ -34,12 +35,27 @@
     font-weight: bold;
 }
 
-.item-card-button {
-    margin: auto;
-    width: 60px;
-    height: 30px;
+.item-card-edit-container {
+    position: relative;
 }
-.save-cancel-div{
+
+.item-card-edit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    color: #777;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 8px;
+}
+
+.item-card-edit-button:hover {
+    color: #000;
+}
+
+.save-cancel-div {
     display: flex;
     gap: 20px;
     justify-content: space-evenly;

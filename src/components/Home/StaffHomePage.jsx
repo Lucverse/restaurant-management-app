@@ -38,7 +38,11 @@ function StaffHomePage() {
     return (
         <div>
             <h1>Staff Home Page</h1>
-            <button onClick={handleAddItemClick}>Add a new item</button>
+            {showAddItem ? null : (
+              <div className="add-item-button">
+                <button onClick={handleAddItemClick}>Add a new item</button>
+              </div>
+            )}
             <div className="item-card-container">
                 {items.map((item) => (
                     <ItemCard
