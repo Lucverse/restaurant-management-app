@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../../types/types";
 import { useParams } from "react-router-dom";
 import CustomerItemCard from "../Items/CustomerItemCard";
-function RestaurantPage() {
 
+function RestaurantPage() {
     const { restaurantName } = useParams();
     const [items, setItems] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(2);
+
     useEffect(() => {
         const fetchItemsData = async () => {
             try {
@@ -19,11 +22,17 @@ function RestaurantPage() {
         };
         fetchItemsData();
     }, [restaurantName]);
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     return (
         <div>
-            <h1>Restaurant Page</h1>
+            <h1 style={{ textAlign: "center", fontStyle: 'oblique', textDecoration: 'wavy underline' }}>{restaurantName}</h1>
             <div className="item-card-container">
-                {items.map((item) => (
+                {currentItems.map((item) => (
                     <CustomerItemCard
                         key={item.id}
                         name={item.itemName}
@@ -33,7 +42,13 @@ function RestaurantPage() {
                     />
                 ))}
             </div>
+            <div className="pagination">
+                <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
+                <span>Page {currentPage} of {Math.ceil(items.length / itemsPerPage)}</span>
+                <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === Math.ceil(items.length / itemsPerPage)}>Next</button>
+            </div>
         </div>
     )
 }
+
 export default RestaurantPage;

@@ -12,7 +12,7 @@ const CustomerItemCard = ({ name, imageUrl, description, price }) => {
             <div className="item-card-content">
                 <p className="item-card-name">{name}</p>
                 <p className="item-card-description">{description}</p>
-                <p className="item-card-price">${price}</p>
+                <p className="item-card-price">₹{price}</p>
                 <button className="item-card-button">
                     Add To Cart
                 </button>
