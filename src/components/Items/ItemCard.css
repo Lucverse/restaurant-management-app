@@ -36,10 +36,11 @@
 
 .item-card-button {
     margin: auto;
-    width: 100px;
+    width: 60px;
     height: 30px;
 }
 .save-cancel-div{
     display: flex;
+    gap: 20px;
     justify-content: space-evenly;
 }

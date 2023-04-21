@@ -21,7 +21,8 @@ function CustomerHomePage() {
             {restaurant.map((item) => (
                 <RestaurantCard
                     key={item.id}
-                    restaurantName={item.restaurantName} />
+                    restaurantName={item.restaurantName} 
+                    id={item._id}/>
             ))}
         </div>
     )
