@@ -1,37 +1,26 @@
 import "./additem.css";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addItem } from "../../actions/itemsActions";
 import { API_URL } from "../../types/types";
+import { useSelector } from "react-redux";
 
-function AddItem() {
-    const dispatch = useDispatch();
-
+function AddItem({ onCancel }) {
+    const restaurantName = useSelector(state => state.auth.user.restaurantName);
     const [itemName, setItemName] = useState("");
     const [itemImage, setItemImage] = useState("");
     const [itemPrice, setItemPrice] = useState("");
     const [itemDescription, setItemDescription] = useState("");
     const [itemType, setItemType] = useState("");
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(
-            addItem({
-                itemName,
-                itemImage,
-                itemPrice,
-                itemDescription,
-                itemType,
-            })
-        );
         const newItem = {
             itemName,
             itemImage,
             itemPrice,
             itemDescription,
             itemType,
+            restaurantName
         };
-        fetch(`http://localhost:5000/restaurants`, {
+        fetch(`${API_URL}/items`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -45,18 +34,26 @@ function AddItem() {
             .catch((error) => {
                 console.error("Error adding item to API:", error);
             });
+        resetfields();
+    };
+
+    const resetfields = () => {
+        onCancel();
         setItemName("");
         setItemImage("");
         setItemPrice("");
         setItemDescription("");
         setItemType("");
+    }
+    const handleCancel = () => {
+        resetfields();
     };
 
     return (
         <div className="add-item-overlay">
             <div className="add-item-main">
                 <h1>Add Item</h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="add-item-form">
                     <label htmlFor="itemName">Item Name</label>
                     <input
                         type="text"
@@ -64,14 +61,16 @@ function AddItem() {
                         placeholder="Item Name"
                         value={itemName}
                         onChange={(e) => setItemName(e.target.value)}
+                        required
                     />
                     <label htmlFor="itemImage">Item Image URL</label>
                     <input
-                        type="text"
+                        type="url"
                         id="itemImage"
                         placeholder="Item Image URL"
                         value={itemImage}
                         onChange={(e) => setItemImage(e.target.value)}
+                        required
                     />
                     <label htmlFor="itemPrice">Item Price</label>
                     <input
@@ -80,6 +79,7 @@ function AddItem() {
                         placeholder="Item Price"
                         value={itemPrice}
                         onChange={(e) => setItemPrice(e.target.value)}
+                        required
                     />
                     <label htmlFor="itemDescription">Item Description</label>
                     <textarea
@@ -87,16 +87,25 @@ function AddItem() {
                         placeholder="Item Description"
                         value={itemDescription}
                         onChange={(e) => setItemDescription(e.target.value)}
+                        required
                     ></textarea>
                     <label htmlFor="itemType">Item Type</label>
-                    <input
-                        type="text"
+                    <select
                         id="itemType"
-                        placeholder="Item Type"
                         value={itemType}
                         onChange={(e) => setItemType(e.target.value)}
-                    />
-                    <button type="submit">Add Item</button>
+                        required
+                    >
+                        <option value="Vegetarian">Vegetarian</option>
+                        <option value="Non-vegetarian">Non-vegetarian</option>
+                    </select>
+
+                    <div className="add-item-buttons">
+                        <button type="button" onClick={handleCancel} className="cancel-button">
+                            Cancel
+                        </button>
+                        <button type="submit">Add Item</button>
+                    </div>
                 </form>
             </div>
         </div>
