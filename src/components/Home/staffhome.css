@@ -2,3 +2,24 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
 }
+
+
+@media only screen and (max-width: 1024px) {
+    .item-card-container {
+        grid-template-columns: repeat(2,1fr);
+    }
+    .item-card-container .item-card-image{
+        width: 200px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .item-card-container {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .item-card-container .item-card-image{
+        width: 100px;
+    } ;
+}
+@media only screen and (max-width: 426px) {
+
+}
