@@ -1,7 +1,7 @@
 import { API_URL } from "../../types/types";
 import { useEffect, useState } from "react";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
-import "./customherhomepage.css";
+import "./CustomerHomePage.css";
 
 function CustomerHomePage() {
     const [restaurant, setRestaurant] = useState([]);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AddItem from "../AddItem/AddItem";
 import ItemCard from "../Items/ItemCard";
-import './staffhome.css'
+import './StaffHomePage.css'
 import { API_URL } from "../../types/types";
 import { useSelector } from "react-redux";
 
