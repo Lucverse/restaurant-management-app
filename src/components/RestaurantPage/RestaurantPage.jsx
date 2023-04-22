@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "../../types/types";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CustomerItemCard from "../Items/CustomerItemCard";
 import { FaShoppingCart } from "react-icons/fa";
 
@@ -44,6 +44,7 @@ function RestaurantPage() {
                         imageUrl={item.itemImage}
                         price={item.itemPrice}
                         description={item.itemDescription}
+                        type={item.type}
                     />
                 ))}
             </div>
@@ -52,11 +53,13 @@ function RestaurantPage() {
                 <span>Page {currentPage} of {Math.ceil(items.length / itemsPerPage)}</span>
                 <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === Math.ceil(items.length / itemsPerPage)}>Next</button>
             </div>
-            <div className="cart-button-div">
-                <button className="cart-button">
-                    <FaShoppingCart />
-                </button>
-            </div>
+            <Link to='/cart' style={{ color: 'white' }}>
+                <div className="cart-button-div">
+                    <button className="cart-button">
+                        <FaShoppingCart />
+                    </button>
+                </div>
+            </Link>
         </div >
     )
 }

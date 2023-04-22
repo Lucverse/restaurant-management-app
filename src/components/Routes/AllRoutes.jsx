@@ -11,6 +11,7 @@ import StaffHomePage from '../Home/StaffHomePage.jsx';
 import RestaurantOrders from '../Orders/RestaurantOrders.jsx';
 import CustomerOrders from '../Orders/CustomerOrders.jsx'
 import RestaurantPage from '../RestaurantPage/RestaurantPage.jsx';
+import CartPage from '../CartPage/CartPage.jsx';
 
 function AllRoutes() {
   const isAuthenticated = useSelector(state => state.auth.isLoggedIn);
@@ -42,6 +43,7 @@ function AllRoutes() {
           <Route path="/" element={<CustomerHomePage />} />
           <Route path="/orders" element={<CustomerOrders />} />
           <Route path="/restaurants/:restaurantName" element={<RestaurantPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </>
       )}
       <Route path="/*" element={<Pagenotfound />} />

@@ -3,13 +3,14 @@
     padding: 13px;
     color: white;
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 20% 40%;
+    justify-content: space-between;
 }
 
 .nav-links {
-    width: 90%;
     display: flex;
     justify-content: space-evenly;
+    
 }
 
 .nav a {
