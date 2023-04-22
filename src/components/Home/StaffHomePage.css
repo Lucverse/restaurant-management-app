@@ -1,37 +1,51 @@
-.item-card-container{    
+.staff-home-main {
+    width: 95%;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.item-card-container {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
 
 @media only screen and (max-width: 1024px) {
     .item-card-container {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
-    .item-card-container .item-card-image{
-        width: 200px;
+
+    .item-card-container .item-card-image {
+        width: 150px;
     }
 }
+
 @media only screen and (max-width: 768px) {
     .item-card-container {
-        grid-template-columns: repeat(1,1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
-    .item-card-container .item-card-image{
-        width: 100px;
-    } ;
-}
-@media only screen and (max-width: 426px) {
 
+    .item-card-container .item-card-image {
+        width: 100px;
+    }
+
+    ;
 }
+
+@media only screen and (max-width: 426px) {}
+
 /* add item */
-.add-item-button {
+.add-item-button,
+.cart-button-div {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1;
-  }
-  
-  .add-item-button button {
+}
+
+.add-item-button button,
+.cart-button-div button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -43,6 +57,8 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-  }
-
-  
+}
+.add-item-button button,
+.cart-button-div button:hover {
+    background-color: #3e8e41;
+}

@@ -1,11 +1,9 @@
 .item-card {
     display: flex;
-    width: 90%;
-    margin: 10px auto;
     border: 1px solid #ccc;
     border-radius: 5px;
-    overflow: hidden;
-    padding: 5px;
+    padding: 10px;
+    position: relative;
 }
 
 .item-card-image {
@@ -41,7 +39,7 @@
 
 .item-card-edit-button {
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
     background-color: transparent;
     border: none;
@@ -59,4 +57,17 @@
     display: flex;
     gap: 20px;
     justify-content: space-evenly;
+}
+
+.item-card-type{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5rem;
+    color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

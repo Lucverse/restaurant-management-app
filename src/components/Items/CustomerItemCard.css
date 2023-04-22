@@ -9,6 +9,19 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.item-card-type {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5rem;
+    color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .item-card-image {
     width: 80px;
     margin-right: 16px;
@@ -40,6 +53,7 @@
 }
 
 .item-card-button {
+    margin: auto;
     background-color: #007bff;
     color: #fff;
     border: none;

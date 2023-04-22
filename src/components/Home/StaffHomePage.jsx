@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 function StaffHomePage() {
     const [showAddItem, setShowAddItem] = useState(false);
     const [items, setItems] = useState([]);
+    const [totalItems, setTotalItems] = useState([]);
     const restaurantName = useSelector(state => state.auth.user.restaurantName);
 
     useEffect(() => {
@@ -17,6 +18,7 @@ function StaffHomePage() {
                 const data = await response.json();
                 const filteredData = data.filter(item => item.restaurantName === restaurantName);
                 setItems(filteredData);
+                setTotalItems(filteredData.length);
             } catch (error) {
                 console.error("Error fetching items data: ", error);
             }
@@ -36,8 +38,9 @@ function StaffHomePage() {
     };
 
     return (
-        <div>
-            <h1>Staff Home Page</h1>
+        <div className="staff-home-main">
+            <h1>{restaurantName}</h1>
+            <p>Total Items : {totalItems}</p>
             {showAddItem ? null : (
               <div className="add-item-button">
                 <button onClick={handleAddItemClick}>Add a new item</button>
@@ -51,6 +54,7 @@ function StaffHomePage() {
                         imageUrl={item.itemImage}
                         price={item.itemPrice}
                         description={item.itemDescription}
+                        type= {item.type}
                         onEditClick={(name, description, price) => handleEditClick(item.id, name, description, price)}
                     />
                 ))}

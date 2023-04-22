@@ -2,13 +2,19 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../../types/types";
 import { useParams } from "react-router-dom";
 import CustomerItemCard from "../Items/CustomerItemCard";
+import { FaShoppingCart } from "react-icons/fa";
 
 function RestaurantPage() {
     const { restaurantName } = useParams();
     const [items, setItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(4);
-
+    const itemsPerPage = 4;
+    const restNameStyle = {
+        textAlign: "center",
+        fontWeight: 'normal',
+        fontStyle: 'oblique',
+        textDecoration: 'dotted underline',
+    }
     useEffect(() => {
         const fetchItemsData = async () => {
             try {
@@ -30,11 +36,10 @@ function RestaurantPage() {
 
     return (
         <div>
-            <h1 style={{ textAlign: "center", fontStyle: 'oblique', textDecoration: 'wavy underline' }}>{restaurantName}</h1>
+            <h1 style={restNameStyle}>{restaurantName}</h1>
             <div className="item-card-container">
                 {currentItems.map((item) => (
                     <CustomerItemCard
-                        key={item.id}
                         name={item.itemName}
                         imageUrl={item.itemImage}
                         price={item.itemPrice}
@@ -47,7 +52,12 @@ function RestaurantPage() {
                 <span>Page {currentPage} of {Math.ceil(items.length / itemsPerPage)}</span>
                 <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === Math.ceil(items.length / itemsPerPage)}>Next</button>
             </div>
-        </div>
+            <div className="cart-button-div">
+                <button className="cart-button">
+                    <FaShoppingCart />
+                </button>
+            </div>
+        </div >
     )
 }
 
