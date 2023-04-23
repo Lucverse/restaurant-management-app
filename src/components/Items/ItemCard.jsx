@@ -4,7 +4,7 @@ import EditItem from "./EditItem";
 import AddToCart from "./AddToCard";
 const ItemCard = ({ name, imageUrl, description, price, type, userType }) => {
     const isVegetarian = type === "vegetarian";
-    const isStaff = userType ==="staff";
+    const isCustomer = userType ==="customer";
     return (
         <div className="item-card">
             {isVegetarian ? (
@@ -22,7 +22,7 @@ const ItemCard = ({ name, imageUrl, description, price, type, userType }) => {
                 <p className="item-card-description">{description}</p>
                 <p className="item-card-price">₹{price}</p>
                 {
-                    isStaff ? <EditItem/> : <AddToCart/>
+                    !isCustomer ? <EditItem/> : <AddToCart/>
                 }
             </div>
         </div>

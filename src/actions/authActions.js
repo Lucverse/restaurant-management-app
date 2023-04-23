@@ -1,6 +1,5 @@
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_USER, UPDATE_USER, API_URL } from '../types/types';
 
-// Action creator for successful login
 export const loginSuccess = (user) => {
   return (dispatch) => {
     dispatch({
@@ -10,7 +9,6 @@ export const loginSuccess = (user) => {
   };
 };
 
-// Action creator for login failure
 export const loginFailure = (error) => {
   return {
     type: LOGIN_FAILURE,
@@ -19,7 +17,6 @@ export const loginFailure = (error) => {
 };
 export const loginUser = (email, password) => {
   return (dispatch) => {
-    // First API call to fetch user data
     fetch(`${API_URL}/users`, {
       method: 'GET',
       headers: {
@@ -29,8 +26,7 @@ export const loginUser = (email, password) => {
       .then(response => response.json())
       .then(userData => {
         const user = userData.find(user => user.email === email && user.password === password);
-        console.log(user);
-        if (user.userType === 'staff') {
+        if (user && user.userType === 'staff') {
           fetch(`${API_URL}/restaurants`, {
             method: 'GET',
             headers: {
@@ -47,10 +43,14 @@ export const loginUser = (email, password) => {
               console.error('Error fetching restaurant data:', error);
               dispatch(loginFailure('Error fetching restaurant data'));
             });
-        } else {
+        } else if (user) {
           // If the user type is not staff, dispatch user info only
           const loggedInUser = { ...user, isLoggedIn: true };
           dispatch(loginSuccess(loggedInUser));
+          console.log(user.userType);
+        } else {
+          // If the user is not found, dispatch login failure with error message
+          dispatch(loginFailure('User not found'));
         }
       })
       .catch(error => {
@@ -61,7 +61,7 @@ export const loginUser = (email, password) => {
 };
 
 
-// Action creator for logging out user
+
 export const logoutUser = () => {
   return (dispatch) => {
     dispatch({
@@ -70,7 +70,6 @@ export const logoutUser = () => {
   };
 };
 
-// Action creator for updating user information
 export const updateUser = (userId, updatedUser) => {
   return (dispatch) => {
     fetch(`${API_URL}/users/${userId}`, {
