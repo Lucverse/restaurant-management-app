@@ -14,8 +14,7 @@ function AddToCart({ name, imageUrl, description, price, type }) {
             description,
             price,
             type,
-        };
-        console.log(item);
+        }
         dispatch(addToCart(item));
         setShowAlert(true);
         setTimeout(() => {

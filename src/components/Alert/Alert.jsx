@@ -14,11 +14,11 @@ const Alert = ({ type, message, onHide }) => {
 
         timer1 = setTimeout(() => {
             setIsActive(false);
-        }, 5000);
+        }, 300);
 
         timer2 = setTimeout(() => {
             setIsProgressActive(false);
-        }, 5300);
+        }, 300);
     };
 
     const hideAlert = () => {

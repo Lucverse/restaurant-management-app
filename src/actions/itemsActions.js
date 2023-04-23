@@ -33,7 +33,6 @@ export const fetchItems = (restaurantName) => {
         .then(response => response.json())
         .then(data => {
           const filteredData = data.filter(item => item.restaurantName === restaurantName);
-          // console.log(filteredData);
           dispatch(fetchItemsSuccess(filteredData));
         })
         .catch(error => {

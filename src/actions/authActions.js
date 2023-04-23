@@ -47,7 +47,6 @@ export const loginUser = (email, password) => {
           // If the user type is not staff, dispatch user info only
           const loggedInUser = { ...user, isLoggedIn: true };
           dispatch(loginSuccess(loggedInUser));
-          console.log(user.userType);
         } else {
           // If the user is not found, dispatch login failure with error message
           dispatch(loginFailure('User not found'));
