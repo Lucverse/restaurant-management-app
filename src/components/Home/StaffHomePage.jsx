@@ -9,9 +9,19 @@ function StaffHomePage() {
     const [showAddItem, setShowAddItem] = useState(false);
     const [items, setItems] = useState([]);
     const [totalItems, setTotalItems] = useState([]);
-    const restaurantName = useSelector(state => state.auth.user.restaurantName);
+    const user = useSelector(state => state.auth.user.username);
+    const [restaurantName, setRestaurantName] = useState('');
 
     useEffect(() => {
+        const fetchRestaurants = async () => {
+            try {
+                const response = await fetch(`${API_URL}/restaurants`);
+                const data = await response.json();
+                setRestaurantName(data.filter(item => item.staff.includes(user))[0].restaurantName);
+            } catch (error) {
+                console.error("Error fetching items data: ", error);
+            }
+        }
         const fetchItemsData = async () => {
             try {
                 const response = await fetch(`${API_URL}/items`);
@@ -23,8 +33,9 @@ function StaffHomePage() {
                 console.error("Error fetching items data: ", error);
             }
         };
+        fetchRestaurants();
         fetchItemsData();
-    }, [restaurantName]);
+    }, [user, restaurantName]);
 
 
     const handleAddItemClick = () => {
@@ -42,9 +53,9 @@ function StaffHomePage() {
             <h1>{restaurantName}</h1>
             <p>Total Items : {totalItems}</p>
             {showAddItem ? null : (
-              <div className="add-item-button">
-                <button onClick={handleAddItemClick}>Add a new item</button>
-              </div>
+                <div className="add-item-button">
+                    <button onClick={handleAddItemClick}>Add a new item</button>
+                </div>
             )}
             <div className="item-card-container">
                 {items.map((item) => (
@@ -54,7 +65,7 @@ function StaffHomePage() {
                         imageUrl={item.itemImage}
                         price={item.itemPrice}
                         description={item.itemDescription}
-                        type= {item.type}
+                        type={item.type}
                         onEditClick={(name, description, price) => handleEditClick(item.id, name, description, price)}
                     />
                 ))}
