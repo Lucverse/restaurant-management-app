@@ -14,8 +14,8 @@ function CartPage() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const cartItems = useSelector(state => state.cart.cartItems);
+    const userId = useSelector(state => state.auth.user._id);
     const dispatch = useDispatch();
-
     const totalPrice = cartItems.reduce((acc, item) => {
         return acc + item.item.price * item.quantity;
     }, 0);
@@ -29,9 +29,10 @@ function CartPage() {
             const response = await fetch(`${API_URL}/orders`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ itemArray: orderItems })
+                body: JSON.stringify({ itemArray: orderItems, userId: userId})
             });
             const data = await response.json();
+            console.log(data);
             dispatch(clearCart());
             setShowSuccessAlert(true);
             setSuccessMessage('Order placed successfully!');
