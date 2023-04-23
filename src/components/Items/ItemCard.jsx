@@ -1,9 +1,10 @@
 import React from "react";
 import "./ItemCard.css";
-import { FaPencilAlt } from "react-icons/fa";
-
-const ItemCard = ({ name, imageUrl, description, price, type }) => {
+import EditItem from "./EditItem";
+import AddToCart from "./AddToCard";
+const ItemCard = ({ name, imageUrl, description, price, type, userType }) => {
     const isVegetarian = type === "vegetarian";
+    const isStaff = userType ==="staff";
     return (
         <div className="item-card">
             {isVegetarian ? (
@@ -20,11 +21,9 @@ const ItemCard = ({ name, imageUrl, description, price, type }) => {
                 <p className="item-card-name">{name}</p>
                 <p className="item-card-description">{description}</p>
                 <p className="item-card-price">₹{price}</p>
-                <div className="item-card-edit-container">
-                    <button className="item-card-edit-button">
-                        <FaPencilAlt />
-                    </button>
-                </div>
+                {
+                    isStaff ? <EditItem/> : <AddToCart/>
+                }
             </div>
         </div>
     );

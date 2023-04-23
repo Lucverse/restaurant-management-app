@@ -1,14 +1,16 @@
-.cart-main-page{
+.cart-main-page {
     width: 95%;
     margin: auto;
 }
-.cart-item-container{
+
+.cart-item-container {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
+
 @media only screen and (max-width: 768px) {
-.cart-item-container{
-    grid-template-columns: repeat(1,1fr);
-}
+    .cart-item-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

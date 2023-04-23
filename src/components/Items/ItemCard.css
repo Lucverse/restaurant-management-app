@@ -1,3 +1,12 @@
+.item-card {
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 7px;
+    height: 200px;
+}
+
 .item-card-image {
     border-radius: 7px 0px 0px 7px;
     margin-right: 1rem;
@@ -19,8 +28,12 @@
 }
 
 .item-card-description {
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
+    font-size: 14px;
+    color: #999;
+    line-height: 1.5em;
+    height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .item-card-price {
@@ -28,25 +41,6 @@
     font-weight: bold;
 }
 
-.item-card-edit-container {
-    position: relative;
-}
-
-.item-card-edit-button {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: transparent;
-    border: none;
-    color: #777;
-    cursor: pointer;
-    font-size: 20px;
-    padding: 8px;
-}
-
-.item-card-edit-button:hover {
-    color: #000;
-}
 
 .save-cancel-div {
     display: flex;

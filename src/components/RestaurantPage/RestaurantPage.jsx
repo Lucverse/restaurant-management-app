@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchItems } from "../../actions/itemsActions";
 import { Link, useParams } from "react-router-dom";
-import CustomerItemCard from "../Items/CustomerItemCard";
 import { FaShoppingCart } from "react-icons/fa";
 import Loading from "../Loading/Loading";
+import ItemCard from "../Items/ItemCard";
 
 function RestaurantPage() {
     const { restaurantName } = useParams();
     const dispatch = useDispatch();
     const items = useSelector(state => state.item.items);
     const isLoading = useSelector(state => state.item.loading);
+    const userType = useSelector(state => state.auth.user.userType);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 4;
     const restNameStyle = {
@@ -37,14 +38,15 @@ function RestaurantPage() {
     return (
         <div>
             <h1 style={restNameStyle}>{restaurantName}</h1>
-            <div className="item-card-container">
+            <div className="item-card-container" style={{width:'95%', margin:'auto'}}>
                 {currentItems.map((item) => (
-                    <CustomerItemCard
+                    <ItemCard
                         name={item.itemName}
                         imageUrl={item.itemImage}
                         price={item.itemPrice}
                         description={item.itemDescription}
                         type={item.type}
+                        userType={userType}
                     />
                 ))}
             </div>

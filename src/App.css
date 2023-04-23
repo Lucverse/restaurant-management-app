@@ -1,0 +1,60 @@
+/* add to cart */
+.add-to-cart-button {
+    float: right;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    width: 150px;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.add-to-cart-button:hover {
+    animation-name: item-card-button;
+    animation-duration: 4s;
+}
+
+/* edit button */
+.card-buttons{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: transparent;
+    color: #007bff;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 7px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-buttons:hover {
+    animation-name: card-buttons;
+    animation-duration: 2s;
+}
+
+/* button animation */
+@keyframes card-buttons {
+    from {
+        color: #007bff;
+    }
+
+    to {
+        color: green;
+    }
+}
+
+@keyframes item-card-button {
+    from {
+        background-color: #0069d9;
+    }
+
+    to {
+        background-color: green;
+    }
+}

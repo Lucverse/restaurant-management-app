@@ -1,12 +1,14 @@
-.customer-home-main{
+.customer-home-main {
     width: 95%;
     margin: auto;
 }
+
 .restaurant-main-div {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
 }
+
 /* pagination */
 .pagination {
     display: flex;
@@ -42,32 +44,32 @@
 
 /* filter */
 .filter-container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 20px;
 }
 
 .filter-container label {
-  margin-right: 10px;
-  font-size: 16px;
+    margin-right: 10px;
+    font-size: 16px;
 }
 
 .filter-container select {
-  padding: 5px;
-  border-radius: 5px;
-  border: none;
-  background-color: #f0f0f0;
-  font-size: 16px;
-  cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .filter-container select:hover {
-  background-color: #e0e0e0;
+    background-color: #e0e0e0;
 }
 
 .filter-container select:focus {
-  outline: none;
+    outline: none;
 }
 
 @media only screen and (max-width: 768px) {
