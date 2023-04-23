@@ -8,7 +8,6 @@ const SignupForm = () => {
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('');
   const [username, setUsername] = useState('');
-  const [restaurantName, setRestaurantName] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,8 +16,7 @@ const SignupForm = () => {
       email,
       password,
       userType,
-      username,
-      restaurantName
+      username
     };
 
     fetch(`${API_URL}/users`, {
@@ -33,12 +31,12 @@ const SignupForm = () => {
         if (data.error) {
           alert(data.error);
         } else {
+          alert(data.message);
           setFullName('');
           setEmail('');
           setPassword('');
           setUserType('');
           setUsername('');
-          setRestaurantName('');
         }
       })
       .catch(error => console.error('Error creating user:', error));
@@ -90,17 +88,6 @@ const SignupForm = () => {
           <option value="staff">Staff</option>
         </select>
       </label>
-      {userType === 'staff' && (
-        <label>
-          Restaurant Name:
-          <input
-            type="text"
-            value={restaurantName}
-            onChange={(e) => setRestaurantName(e.target.value)}
-            required
-          />
-        </label>
-      )}
       <button type="submit">Sign Up</button>
     </form>
   );
