@@ -17,8 +17,6 @@ export const loginFailure = (error) => {
     payload: error
   };
 };
-
-// Action creator for logging in user
 export const loginUser = (email, password) => {
   return (dispatch) => {
     // First API call to fetch user data
@@ -31,8 +29,8 @@ export const loginUser = (email, password) => {
       .then(response => response.json())
       .then(userData => {
         const user = userData.find(user => user.email === email && user.password === password);
-        if (user) {
-          // Second API call to fetch restaurant data
+        console.log(user);
+        if (user.userType === 'staff') {
           fetch(`${API_URL}/restaurants`, {
             method: 'GET',
             headers: {
@@ -50,8 +48,9 @@ export const loginUser = (email, password) => {
               dispatch(loginFailure('Error fetching restaurant data'));
             });
         } else {
-          console.error('Invalid email or password');
-          dispatch(loginFailure('Invalid email or password'));
+          // If the user type is not staff, dispatch user info only
+          const loggedInUser = { ...user, isLoggedIn: true };
+          dispatch(loginSuccess(loggedInUser));
         }
       })
       .catch(error => {
@@ -60,6 +59,7 @@ export const loginUser = (email, password) => {
       });
   };
 };
+
 
 // Action creator for logging out user
 export const logoutUser = () => {

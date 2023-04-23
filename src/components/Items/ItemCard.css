@@ -1,10 +1,11 @@
-
 .item-card-image {
     border-radius: 7px 0px 0px 7px;
     margin-right: 1rem;
     height: 100%;
     object-fit: cover;
     object-position: 25% 25%;
+    width: 270px;
+    overflow: hidden;
 }
 
 .item-card-content {

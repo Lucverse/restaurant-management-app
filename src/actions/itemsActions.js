@@ -1,39 +1,48 @@
-import { ADD_ITEM, FETCH_RESTAURANTS_FAILURE, FETCH_RESTAURANTS_SUCCESS, FETCH_RESTAURANTS_REQUEST } from "../types/types";
-export const addItem = (itemData) => {
-    return {
-        type: ADD_ITEM,
-        payload: itemData,
-    };
-};
-export const fetchRestaurantsRequest = () => {
-    return {
-        type: FETCH_RESTAURANTS_REQUEST,
-    };
+import { API_URL, FETCH_ITEMS_REQUEST, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_FAILURE } from "../types/types";
+
+export const fetchItemsRequest = () => {
+  return {
+    type: FETCH_ITEMS_REQUEST
+  };
 };
 
-export const fetchRestaurantsSuccess = (restaurants) => {
-    return {
-        type: FETCH_RESTAURANTS_SUCCESS,
-        payload: restaurants,
-    };
-};
-export const fetchRestaurantsFailure = (error) => {
-    return {
-        type: FETCH_RESTAURANTS_FAILURE,
-        payload: error,
-    };
+export const fetchItemsSuccess = (items) => {
+  return {
+    type: FETCH_ITEMS_SUCCESS,
+    payload: items
+  };
 };
 
-export const fetchRestaurants = () => {
-    return (dispatch) => {
-        dispatch(fetchRestaurantsRequest());
-        fetch("http://localhost:5000/restaurants")
-            .then((response) => response.json())
-            .then((data) => {
-                dispatch(fetchRestaurantsSuccess(data));
-            })
-            .catch((error) => {
-                dispatch(fetchRestaurantsFailure(error));
-            });
-    };
+export const fetchItemsFailure = (error) => {
+  return {
+    type: FETCH_ITEMS_FAILURE,
+    payload: error
+  };
+};
+
+export const fetchItems = (restaurantName) => {
+  return (dispatch) => {
+    dispatch(fetchItemsRequest());
+    try {
+      fetch(`${API_URL}/items`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          const filteredData = data.filter(item => item.restaurantName === restaurantName);
+          // console.log(filteredData);
+          dispatch(fetchItemsSuccess(filteredData));
+        })
+        .catch(error => {
+          console.error("Error fetching items data: ", error);
+          dispatch(fetchItemsFailure(error.message));
+        });
+    } catch (error) {
+      console.error("Error fetching items data: ", error);
+      dispatch(fetchItemsFailure(error.message));
+    }
+  };
 };

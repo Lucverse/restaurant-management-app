@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
-import { API_URL } from "../../types/types";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchItems } from "../../actions/itemsActions";
 import { Link, useParams } from "react-router-dom";
 import CustomerItemCard from "../Items/CustomerItemCard";
 import { FaShoppingCart } from "react-icons/fa";
+import Loading from "../Loading/Loading";
 
 function RestaurantPage() {
     const { restaurantName } = useParams();
-    const [items, setItems] = useState([]);
+    const dispatch = useDispatch();
+    const items = useSelector(state => state.item.items);
+    const isLoading = useSelector(state => state.item.loading);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 4;
     const restNameStyle = {
@@ -15,24 +19,20 @@ function RestaurantPage() {
         fontStyle: 'oblique',
         textDecoration: 'dotted underline',
     }
-    useEffect(() => {
-        const fetchItemsData = async () => {
-            try {
-                const response = await fetch(`${API_URL}/items`);
-                const data = await response.json();
-                const filteredData = data.filter(item => item.restaurantName === restaurantName);
-                setItems(filteredData);
-            } catch (error) {
-                console.error("Error fetching items data: ", error);
-            }
-        };
-        fetchItemsData();
-    }, [restaurantName]);
 
+    useEffect(() => {
+        dispatch(fetchItems(restaurantName));
+    }, [dispatch, restaurantName]);
+
+    const filteredItems = items.filter(item => item.restaurantName === restaurantName);
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    if (isLoading) {
+        return <Loading />;
+    }
 
     return (
         <div>
@@ -50,8 +50,8 @@ function RestaurantPage() {
             </div>
             <div className="pagination">
                 <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
-                <span>Page {currentPage} of {Math.ceil(items.length / itemsPerPage)}</span>
-                <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === Math.ceil(items.length / itemsPerPage)}>Next</button>
+                <span>Page {currentPage} of {Math.ceil(filteredItems.length / itemsPerPage)}</span>
+                <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === Math.ceil(filteredItems.length / itemsPerPage)}>Next</button>
             </div>
             <Link to='/cart' style={{ color: 'white' }}>
                 <div className="cart-button-div">
@@ -60,7 +60,7 @@ function RestaurantPage() {
                     </button>
                 </div>
             </Link>
-        </div >
+        </div>
     )
 }
 

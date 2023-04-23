@@ -2,36 +2,27 @@ import React, { useState, useEffect } from "react";
 import AddItem from "../AddItem/AddItem";
 import ItemCard from "../Items/ItemCard";
 import './StaffHomePage.css'
-import { API_URL } from "../../types/types";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
+import { fetchItems } from "../../actions/itemsActions";
 
 function StaffHomePage() {
+    const dispatch = useDispatch();
     const [showAddItem, setShowAddItem] = useState(false);
-    const [items, setItems] = useState([]);
-    const [totalItems, setTotalItems] = useState([]);
+    const items = useSelector(state => state.item.items);
     const restaurantName = useSelector(state => state.auth.user.restaurantName);
+    const totalItems = items.length;
     useEffect(() => {
-        const fetchItemsData = async () => {
-            try {
-                const response = await fetch(`${API_URL}/items`);
-                const data = await response.json();
-                const filteredData = data.filter(item => item.restaurantName === restaurantName);
-                setItems(filteredData);
-                setTotalItems(filteredData.length);
-            } catch (error) {
-                console.error("Error fetching items data: ", error);
-            }
-        };
-        fetchItemsData();
-    }, [restaurantName]);
-
+        dispatch(fetchItems(restaurantName));
+      }, [dispatch, restaurantName]);
 
     const handleAddItemClick = () => {
         setShowAddItem(true);
     };
+
     const handleCancel = () => {
         setShowAddItem(false);
     };
+
     const handleEditClick = async (id, name, description, price) => {
         // console.log(id,name);
     };
