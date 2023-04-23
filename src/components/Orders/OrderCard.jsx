@@ -1,6 +1,6 @@
 import React from "react";
 const OrderCard = ({ item, quantity }) => {
-    const isVegetarian = "vegetarian";
+    const isVegetarian = item.type=== "vegetarian";
     return (
         <div className="item-card">
             {isVegetarian ? (
