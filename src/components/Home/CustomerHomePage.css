@@ -48,14 +48,15 @@
 .filter-container select {
     padding: 5px;
     border-radius: 5px;
+    background-color: transparent;
     border: none;
-    background-color: #f0f0f0;
     font-size: 16px;
     cursor: pointer;
 }
 
 .filter-container select:hover {
-    background-color: #e0e0e0;
+    background-color: transparent;
+    border: none;
 }
 
 .filter-container select:focus {

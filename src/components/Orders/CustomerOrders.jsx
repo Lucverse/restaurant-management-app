@@ -72,7 +72,7 @@ function CustomerOrders() {
             {toshow && (
                 <div className='order-dropdown-menu'>
                     <select value={chartOption} onChange={(e) => setChartOption(e.target.value)}>
-                        <option value='quantity'>By Quantity</option>
+                        <option value='quantity'>By Quantity </option>
                         <option value='price'>By Price</option>
                     </select>
                 </div>
