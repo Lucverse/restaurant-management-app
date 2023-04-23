@@ -11,6 +11,7 @@ function CustomerOrders() {
     const userId = useSelector((state) => state.auth.user._id);
 
     const [toshow, setToShow] = useState(false);
+    const [toggleHover, setToggleHover] = useState(false);
     const [chartOption, setChartOption] = useState('quantity');
 
     useEffect(() => {
@@ -64,15 +65,19 @@ function CustomerOrders() {
     return (
         <div className='orders-main-div'>
             <h1>Your Orders</h1>
-            <div className='order-dropdown-menu'>
-                <select value={chartOption} onChange={(e) => setChartOption(e.target.value)}>
-                    <option value='quantity'>By Quantity</option>
-                    <option value='price'>By Price</option>
-                </select>
-            </div>
-            <button className='float-toggle-switch' onClick={() => setToShow(!toshow)}>
+            <button className='float-toggle-switch' onClick={() => { setToShow(!toshow); setToggleHover(!toggleHover); }}>
                 {toshow ? 'Show Orders' : 'Show Chart'}
             </button>
+
+            {toshow && (
+                <div className='order-dropdown-menu'>
+                    <select value={chartOption} onChange={(e) => setChartOption(e.target.value)}>
+                        <option value='quantity'>By Quantity</option>
+                        <option value='price'>By Price</option>
+                    </select>
+                </div>
+            )}
+
             {itemsData.map((order) => (
                 <div key={order.orderId} className='order-card-div'>
                     <p className='ordered-time-date'>
