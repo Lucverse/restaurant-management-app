@@ -9,19 +9,8 @@ function StaffHomePage() {
     const [showAddItem, setShowAddItem] = useState(false);
     const [items, setItems] = useState([]);
     const [totalItems, setTotalItems] = useState([]);
-    const user = useSelector(state => state.auth.user.username);
-    const [restaurantName, setRestaurantName] = useState('');
-
+    const restaurantName = useSelector(state => state.auth.user.restaurantName);
     useEffect(() => {
-        const fetchRestaurants = async () => {
-            try {
-                const response = await fetch(`${API_URL}/restaurants`);
-                const data = await response.json();
-                setRestaurantName(data.filter(item => item.staff.includes(user))[0].restaurantName);
-            } catch (error) {
-                console.error("Error fetching items data: ", error);
-            }
-        }
         const fetchItemsData = async () => {
             try {
                 const response = await fetch(`${API_URL}/items`);
@@ -33,9 +22,8 @@ function StaffHomePage() {
                 console.error("Error fetching items data: ", error);
             }
         };
-        fetchRestaurants();
         fetchItemsData();
-    }, [user, restaurantName]);
+    }, [restaurantName]);
 
 
     const handleAddItemClick = () => {

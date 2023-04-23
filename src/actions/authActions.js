@@ -21,6 +21,7 @@ export const loginFailure = (error) => {
 // Action creator for logging in user
 export const loginUser = (email, password) => {
   return (dispatch) => {
+    // First API call to fetch user data
     fetch(`${API_URL}/users`, {
       method: 'GET',
       headers: {
@@ -28,12 +29,26 @@ export const loginUser = (email, password) => {
       }
     })
       .then(response => response.json())
-      .then(data => {
-        const user = data.find(user => user.email === email && user.password === password);
+      .then(userData => {
+        const user = userData.find(user => user.email === email && user.password === password);
         if (user) {
-          // console.log('Login successful:', user);
-          const loggedInUser = { ...user, isLoggedIn: true };
-          dispatch(loginSuccess(loggedInUser));
+          // Second API call to fetch restaurant data
+          fetch(`${API_URL}/restaurants`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+            .then(response => response.json())
+            .then(restaurantData => {
+              const restaurantName = restaurantData.filter(item => item.staff.includes(user.username))[0].restaurantName;
+              const loggedInUser = { ...user, isLoggedIn: true, restaurantName: restaurantName };
+              dispatch(loginSuccess(loggedInUser));
+            })
+            .catch(error => {
+              console.error('Error fetching restaurant data:', error);
+              dispatch(loginFailure('Error fetching restaurant data'));
+            });
         } else {
           console.error('Invalid email or password');
           dispatch(loginFailure('Invalid email or password'));
