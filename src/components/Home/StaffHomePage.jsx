@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AddItem from "../AddItem/AddItem";
 import ItemCard from "../Items/ItemCard";
 import './StaffHomePage.css'
-import { useSelector, useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { fetchItems } from "../../actions/itemsActions";
 
 function StaffHomePage() {
@@ -13,7 +13,7 @@ function StaffHomePage() {
     const totalItems = items.length;
     useEffect(() => {
         dispatch(fetchItems(restaurantName));
-      }, [dispatch, restaurantName]);
+    }, [dispatch, restaurantName]);
 
     const handleAddItemClick = () => {
         setShowAddItem(true);
@@ -39,7 +39,7 @@ function StaffHomePage() {
             <div className="item-card-container">
                 {items.map((item) => (
                     <ItemCard
-                        key={item.id}
+                        key={item.itemName}
                         name={item.itemName}
                         imageUrl={item.itemImage}
                         price={item.itemPrice}

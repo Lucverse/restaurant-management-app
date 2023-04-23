@@ -30,7 +30,6 @@ function RestaurantPage() {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
     if (isLoading) {
         return <Loading />;
     }
@@ -38,9 +37,11 @@ function RestaurantPage() {
     return (
         <div>
             <h1 style={restNameStyle}>{restaurantName}</h1>
-            <div className="item-card-container" style={{width:'95%', margin:'auto'}}>
+            <div className="item-card-container" style={{ width: '95%', margin: 'auto' }}>
                 {currentItems.map((item) => (
                     <ItemCard
+                        key={item._id}
+                        id={item._id}
                         name={item.itemName}
                         imageUrl={item.itemImage}
                         price={item.itemPrice}

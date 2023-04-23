@@ -47,7 +47,7 @@ function CustomerHomePage() {
       <div className="restaurant-main-div">
         {filteredRestaurants.map((restaurant) => (
           <RestaurantCard
-            key={restaurant.id}
+            key={restaurant.restaurantName}
             restaurantName={restaurant.restaurantName}
             rating={restaurant.rating}
             type={restaurant.type}

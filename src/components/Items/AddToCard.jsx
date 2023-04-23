@@ -4,11 +4,12 @@ import { addToCart } from "../../actions/cartActions";
 import { useState } from "react";
 import Alert from "../Alert/Alert";
 
-function AddToCart({ name, imageUrl, description, price, type }) {
+function AddToCart({id, name, imageUrl, description, price, type }) {
     const dispatch = useDispatch();
     const [showAlert, setShowAlert] = useState(false);
     const handleAddToCart = () => {
         const item = {
+            id,
             name,
             imageUrl,
             description,

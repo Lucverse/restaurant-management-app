@@ -1,5 +1,10 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_CART_ITEM_QUANTITY } from '../types/types';
+import { CLEAR_CART, ADD_TO_CART, REMOVE_FROM_CART, UPDATE_CART_ITEM_QUANTITY } from '../types/types';
 
+export const clearCart = () => {
+  return {
+    type: CLEAR_CART
+  }
+}
 export const addToCart = (item) => {
   return {
     type: ADD_TO_CART,

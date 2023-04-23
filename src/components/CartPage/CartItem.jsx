@@ -1,4 +1,3 @@
-import "./CartItem.css";
 import React, { useState } from "react";
 import { FaTrash } from 'react-icons/fa';
 import { useDispatch } from "react-redux";
@@ -26,11 +25,11 @@ const CartItem = ({ item, itemquantity }) => {
     return (
         <div className="item-card">
             <img src={item.imageUrl} alt={item.name} className="item-card-image" />
-            <div className="cart-item-content">
-                <h3 className="cart-item-name">{item.name}</h3>
-                <p className="cart-item-description">{item.description}</p>
-                <div className="cart-item-details">
-                    <p className="cart-item-price">₹{item.price}</p>
+            <div className="item-card-content">
+                <h3 className="item-card-name">{item.name}</h3>
+                <p className="item-card-description">{item.description}</p>
+                <div className="item-card-details">
+                    <p className="item-card-price">₹{item.price}</p>
                     <div className="cart-item-quantity">
                         <label>Quantity:</label>
                         <button onClick={handleDecreaseQuantity} disabled={quantity <= 1} className="quantity-button">

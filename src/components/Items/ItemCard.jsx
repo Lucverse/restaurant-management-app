@@ -1,7 +1,7 @@
 import React from "react";
 import EditItem from "./EditItem";
 import AddToCart from "./AddToCard";
-const ItemCard = ({ name, imageUrl, description, price, type, userType }) => {
+const ItemCard = ({ name, imageUrl, description, price, type, userType, id}) => {
     const isVegetarian = type === "vegetarian";
     const isCustomer = userType === "customer";
     return (
@@ -22,6 +22,8 @@ const ItemCard = ({ name, imageUrl, description, price, type, userType }) => {
                 <p className="item-card-price">₹{price}</p>
                 {!isCustomer ? <EditItem /> :
                     <AddToCart
+                        key={id}
+                        id={id}
                         name={name}
                         imageUrl={imageUrl}
                         price={price}
