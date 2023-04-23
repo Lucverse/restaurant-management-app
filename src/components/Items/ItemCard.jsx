@@ -1,5 +1,4 @@
 import React from "react";
-import "./ItemCard.css";
 import EditItem from "./EditItem";
 import AddToCart from "./AddToCard";
 const ItemCard = ({ name, imageUrl, description, price, type, userType }) => {

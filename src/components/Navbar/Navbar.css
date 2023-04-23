@@ -3,7 +3,7 @@
     padding: 13px;
     color: white;
     display: grid;
-    grid-template-columns: 20% 40%;
+    grid-template-columns: 50% 40%;
     justify-content: space-between;
 }
 
@@ -11,7 +11,8 @@
     display: flex;
     justify-content: space-evenly;
 }
-.nav-logo{
+
+.nav-logo {
     font-size: 20px;
     font-weight: bold;
 }
@@ -21,25 +22,12 @@
     text-decoration: none;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 579px) {
     .nav {
-        grid-template-columns: 30% 70%;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .nav {
-        grid-template-columns: 40% 60%;
-    }
-}
-
-@media only screen and (max-width: 426px) {
-    .nav {
-        display: block;
-    }
-    .nav-logo{
+        grid-template-columns: repeat(1, 1fr);
         text-align: center;
     }
+
     .nav-links {
         display: none;
     }

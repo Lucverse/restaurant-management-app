@@ -1,11 +1,11 @@
 .restaurant-card {
   margin: auto;
   padding: 10px 40px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 8px;
   margin-bottom: 1rem;
   padding: 1rem;
   position: relative;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .restaurant-card a {

@@ -24,8 +24,8 @@ const CartItem = ({ item, itemquantity }) => {
     };
 
     return (
-        <div className="cart-item">
-            <img src={item.imageUrl} alt={item.name} className="cart-item-image" />
+        <div className="item-card">
+            <img src={item.imageUrl} alt={item.name} className="item-card-image" />
             <div className="cart-item-content">
                 <h3 className="cart-item-name">{item.name}</h3>
                 <p className="cart-item-description">{item.description}</p>

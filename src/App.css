@@ -18,7 +18,7 @@
 }
 
 /* edit button */
-.card-buttons{
+.card-buttons {
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -57,4 +57,152 @@
     to {
         background-color: green;
     }
+}
+
+/* staff and customer main page */
+
+.staff-home-main,
+.customer-home-main {
+    width: 95%;
+    margin: auto;
+}
+
+.item-card-container,
+.restaurant-main-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .item-card-container,
+    .restaurant-main-div {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .item-card-image {
+        width: 200px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .item-card-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .item-card-image {
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+    .item-card-image {
+        width: 150px;
+    }
+}
+
+/* add item */
+.add-item-button,
+.cart-button-div {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+.add-item-button button,
+.cart-button-div button {
+    background-color: #0069d9;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-item-button button,
+.cart-button-div button:hover {
+    animation-name: card-button;
+    animation-duration: 4s;
+}
+
+@keyframes card-button {
+    from {
+        background-color: #0069d9;
+    }
+
+    to {
+        background-color: green;
+    }
+}
+
+/* item card  */
+
+.item-card {
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 7px;
+    height: 200px;
+}
+
+.item-card-image {
+    border-radius: 7px 0px 0px 7px;
+    margin-right: 1rem;
+    height: 100%;
+    object-fit: cover;
+    object-position: 25% 25%;
+    overflow: hidden;
+    max-width: 250px;
+}
+
+.item-card-content {
+    flex: 1;
+}
+
+.item-card-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.item-card-description {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.5em;
+    height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-card-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+.save-cancel-div {
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+
+.item-card-type {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5rem;
+    color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

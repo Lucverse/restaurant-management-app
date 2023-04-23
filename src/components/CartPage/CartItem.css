@@ -12,12 +12,14 @@
     margin-right: 1rem;
     height: 100%;
     width: 150px;
-    object-fit:cover;
+    object-fit: cover;
     object-position: 25% 25%;
 }
-.cart-item-content{
+
+.cart-item-content {
     padding-bottom: 10px;
 }
+
 .cart-item-details {
     flex: 1;
 }
@@ -60,7 +62,6 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 0.2rem;
-    margin: 0.5rem;
     cursor: pointer;
 }
 
@@ -77,8 +78,9 @@
     cursor: pointer;
     margin-left: 1rem;
 }
+
 .cart-item-quantity button:active,
-.cart-item-remove-button:hover{
+.cart-item-remove-button:hover {
     opacity: 0.7;
     color: black;
 }
