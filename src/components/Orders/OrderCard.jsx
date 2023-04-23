@@ -1,6 +1,6 @@
 import React from "react";
 const OrderCard = ({ item, quantity }) => {
-    const isVegetarian = item.type=== "vegetarian";
+    const isVegetarian = item.type === "vegetarian";
     return (
         <div className="item-card">
             {isVegetarian ? (
@@ -10,13 +10,13 @@ const OrderCard = ({ item, quantity }) => {
             )}
             <img
                 className="order-card-image"
-                src={item.itemImage}
-                alt={item.itemName}
+                src={item.image}
+                alt={item.name}
             ></img>
             <div className="item-card-content">
-                <p className="item-card-name">Name: {item.itemName} </p>
+                <p className="item-card-name">Name: {item.name} </p>
                 <p className="rest-name">{item.restaurantName}</p>
-                <p className="item-card-price">₹{item.itemPrice}</p>
+                <p className="item-card-price">₹{item.price}</p>
                 <p className="item-quantity">Quantity: {quantity}</p>
             </div>
         </div>
