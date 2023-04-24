@@ -1,87 +1,50 @@
-.primary-navigation {
-    margin: auto;
-    text-align: center;
-    font-size: 26px;
-    width: 100%;
-}
-
-.primary-navigation ul li {
-    list-style: none;
-    margin: 0 auto;
-    display: inline-block;
-    padding: 0 30px;
+nav {
+    display: flex;
+    justify-content: center;
     position: relative;
-    text-decoration: none;
+    font-family: Hack, monospace;
+}
+
+.menuItems {
+    color: #727272;
     text-align: center;
-    font-family: arvo;
 }
 
-.primary-navigation ul li:not(:first-child) {
-    border-left: 2px solid #3ca0e7;
-}
-
-.primary-navigation li a {
-    color: black;
-    text-decoration: none;
-}
-
-.primary-navigation li a:hover {
-    color: #3ca0e7;
-}
-
-.primary-navigation li:hover {
-    cursor: pointer;
-}
-
-.primary-navigation ul li ul {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    padding-left: 0;
-    left: 0;
-    display: none;
-    background: white;
-}
-
-.primary-navigation ul li:hover>ul,
-.primary-navigation ul li ul:hover {
-    visibility: visible;
-    opacity: 1;
-    display: block;
-    min-width: 250px;
-    text-align: left;
-    padding-top: 20px;
-    box-shadow: 0px 3px 5px -1px #ccc;
-}
-
-.primary-navigation ul li ul li {
-    clear: both;
+nav {
     width: 100%;
-    text-align: left;
-    margin-bottom: 20px;
-    border-style: none;
+    background: #f9f9f9;
 }
 
-.primary-navigation ul li ul li a:hover {
-    padding-left: 10px;
-    border-left: 2px solid #3ca0e7;
-    transition: all 0.3s ease;
+nav .menuItems {
+    list-style: none;
+    display: flex;
 }
 
-@media only screen and (max-width: 579px) {
-    .primary-navigation {
-        font-size: 20px;
-    }
 
-    .primary-navigation ul li {
-        padding: 0 20px;
-    }
+nav .menuItems li a {
+    text-decoration: none;
+    color: #8f8f8f;
+    font-size: 24px;
+    font-weight: 400;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    text-transform: uppercase;
 }
-@media only screen and (max-width: 376px) {
-    .primary-navigation {
-        font-size: 15px;
-    }
-    .primary-navigation ul li {
-        padding: 0 15px;
-    }
+
+nav .menuItems li a::before {
+    content: attr(data-item);
+    transition: 0.5s;
+    color: #8254ff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+nav .menuItems li a:hover::before {
+    width: 100%;
+    transition: all 0.5s ease-in-out;
 }

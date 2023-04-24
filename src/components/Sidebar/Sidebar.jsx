@@ -20,6 +20,7 @@ function Sidebar() {
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/orders">History</NavLink></li>
                     <li><NavLink to="/account">Account</NavLink></li>
+                    <li><NavLink to="/cart">Cart</NavLink></li>
                 </ul> :
                     <ul>
                         <li><NavLink to="/login">Login</NavLink></li>

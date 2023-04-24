@@ -280,10 +280,10 @@
 .order-card-div {
     margin: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 7px;
     width: 80%;
     max-width: 700px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .order-card-div .item-card {
@@ -408,7 +408,7 @@
 
 /* navbar sidebar  */
 
-@media only screen and (min-width: 426px) {
+@media only screen and (min-width: 540px) {
     .sidebar {
         display: none;
     }
@@ -417,14 +417,19 @@
         bottom: 40px;
         right: 50px;
     }
+
+    nav .menuItems li {
+        margin: 10px 30px;
+    }
+
 }
 
-@media only screen and (max-width: 426px) {
+@media only screen and (max-width: 540px) {
     .sidebar {
         display: block;
     }
 
-    .primary-navigation {
+    .nav-bar {
         display: none;
     }
 
@@ -432,4 +437,9 @@
         bottom: 20px;
         right: 20px;
     }
+
+    nav .menuItems li {
+        margin: 10px 20px;
+    }
+
 }

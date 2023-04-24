@@ -5,8 +5,8 @@
     background: white;
     border-radius: 100%;
     cursor: pointer;
-    box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px rgba(255, 255, 255, 1), inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
-    z-index: 99;
+    z-index: 9;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .menu::before,
@@ -52,7 +52,7 @@
 
 .menu.open .button:nth-of-type(2) {
     bottom: 70px;
-    right: 60px;
+    right: 70px;
     background: url("https://www.svgrepo.com/show/436824/number-circle-fill.svg") no-repeat 50%/ 50% #e8e8f3;
     transition-delay: 0.05s;
 }
@@ -60,7 +60,7 @@
 .menu.open .button:last-of-type {
     bottom: 100px;
     right: 0px;
-    background: url("https://www.svgrepo.com/show/513289/chart-pie.svg") no-repeat 50% 45%/50% 45% #e8e8f3;
+    background: no-repeat 50% 45%/50% 45% #e8e8f3;
     transition-delay: 0.1s;
 }
 

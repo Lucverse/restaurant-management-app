@@ -5,18 +5,13 @@ import { useSelector } from 'react-redux';
 function Navigation() {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
     return (
-        <nav className="primary-navigation">
-            {isLoggedIn ? <ul>
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/orders">Order History </NavLink></li>
-                <li><NavLink to="/account">Account</NavLink></li>
-            </ul> :
-                <ul>
-                    <li><NavLink to="/login">Login</NavLink></li>
-                    <li><NavLink to="/signup">Sign up</NavLink></li>
-                </ul>
-            }
-
+        <nav className='nav-bar'>
+            <ul className="menuItems">
+                <li><NavLink to='/' data-item='Home'>Home</NavLink></li>
+                <li><NavLink to='/cart' data-item='cart'>Cart</NavLink></li>
+                <li><NavLink to='/orders' data-item='orders'>Orders</NavLink></li>                
+                <li><NavLink to='/account' data-item='account'>Account</NavLink></li>
+            </ul>
         </nav>
     );
 }

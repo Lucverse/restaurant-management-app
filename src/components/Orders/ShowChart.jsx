@@ -16,11 +16,11 @@ function ShowChart({ handlePriceClick, handleQuantityClick, handleToggle }) {
 
     return (
         <div className={`menu ${active ? 'open' : ''}`} onClick={handleToggleClick}>
-            <div className="button" onClick={handlePriceClick} ></div>
-            <div className="button" onClick={handleQuantityClick}></div>
+            <div className={`button${showGrid ? 'hide' : ''}`} onClick={handlePriceClick}></div>
+            <div className={`button${showGrid ? 'hide' : ''}`} onClick={handleQuantityClick}></div>
             {
                 showGrid ?
-                    < div className="button" onClick={handleClick} style={{ backgroundImage: `url(https://www.svgrepo.com/show/513289/chart-pie.svg)` }}></div>
+                    < div className="button" onClick={handleClick} style={{ backgroundImage: `url(https://www.svgrepo.com/show/513117/chart-pie.svg)` }}></div>
                     :
                     < div className="button" onClick={handleClick} style={{ backgroundImage: `url(https://www.svgrepo.com/show/506211/grid-4.svg)` }}></div>
             }
