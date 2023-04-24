@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRoadCircleExclamation, faBackward} from '@fortawesome/free-solid-svg-icons';
+
 function Pagenotfound(props) {
     return (
         <div className='PageNotFound'>
-            <img style={{ mixBlendMode:'multiply' }} src='https://www.brainmeasures.com/videocourse/files/not-found.gif' alt='notfoundimg'></img>
+            <FontAwesomeIcon icon={faRoadCircleExclamation} style={{ mixBlendMode: 'multiply', fontSize: '100px' }} />
             <h1>Page Not Found</h1>
-            <Link to='/' className='button-css'>
-                Go Back
+            <Link to='/' className='go-back'>
+                <FontAwesomeIcon icon={faBackward} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
+                Go Home
             </Link>
         </div>
-
     );
 }
 

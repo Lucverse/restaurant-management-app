@@ -29,7 +29,7 @@ function CartPage() {
             const response = await fetch(`${API_URL}/orders`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ itemArray: orderItems, userId: userId})
+                body: JSON.stringify({ itemArray: orderItems, userId: userId })
             });
             const data = await response.json();
             console.log(data);
@@ -62,11 +62,15 @@ function CartPage() {
                     <CartItem key={item.item.name} item={item.item} itemquantity={item.quantity} />
                 ))}
             </div>
-            <div className='order-button-div'>
-                <button className='order-now-button' onClick={handleOrderNow}>
-                    Order Now {`₹${totalPrice.toFixed(2)}`}
-                </button>
-            </div>
+            {
+                cartItems.length > 0 ?
+                    <div className='order-button-div'>
+                        <button className='order-now-button' onClick={handleOrderNow}>
+                            Order Now {`₹${totalPrice.toFixed(2)}`}
+                        </button>
+                    </div> :
+                    <></>
+            }
             {showSuccessAlert && <Alert type='success' message={successMessage} onHide={handleSuccessAlertClose} />}
             {showErrorAlert && <Alert type='error' message={errorMessage} onHide={handleErrorAlertClose} />}
         </div>

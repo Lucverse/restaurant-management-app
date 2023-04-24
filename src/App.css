@@ -426,20 +426,31 @@
 
 @media only screen and (max-width: 540px) {
     .sidebar {
-        display: block;
-    }
-
-    .nav-bar {
         display: none;
     }
-
     .menu {
         bottom: 20px;
         right: 20px;
     }
-
-    nav .menuItems li {
-        margin: 10px 20px;
+    .menuItems a {
+        margin: 0 0px;
     }
 
+}
+
+
+/* page not found */
+.PageNotFound{
+    margin: auto;
+    width: max-content;
+    align-items: center;
+    text-align: center;
+}
+.go-back{
+    margin: auto;
+    width: max-content;
+    display: flex;
+    gap: 20px;
+    text-decoration: none;
+    color: black;
 }

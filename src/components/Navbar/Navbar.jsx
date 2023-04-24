@@ -2,6 +2,7 @@ import './Navbar.css';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { faRoadCircleExclamation, faBackward } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -10,7 +11,10 @@ function Navbar() {
             <NavLink to="/"><span className='nav-logo'>Restaurant Management App </span></NavLink>
             <div className="nav-links">
                 {isLoggedIn ? <>
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/">
+                        Home
+                        <FontAwesomeIcon icon={faBackward} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
+                    </NavLink>
                     <NavLink to="/orders">Order History</NavLink>
                     <NavLink to="/account">Account</NavLink>
                     <NavLink to="/cart">Cart</NavLink>

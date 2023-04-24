@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Signup.css';
 import { API_URL } from '../../types/types';
+import { useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
   const [fullName, setFullName] = useState('');
@@ -8,6 +9,7 @@ const SignupForm = () => {
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('');
   const [username, setUsername] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,6 +39,7 @@ const SignupForm = () => {
           setPassword('');
           setUserType('');
           setUsername('');
+          navigate('/');
         }
       })
       .catch(error => console.error('Error creating user:', error));

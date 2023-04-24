@@ -3,48 +3,29 @@ nav {
     justify-content: center;
     position: relative;
     font-family: Hack, monospace;
+    background-color:seashell;
 }
 
 .menuItems {
-    color: #727272;
-    text-align: center;
-}
-
-nav {
-    width: 100%;
-    background: #f9f9f9;
-}
-
-nav .menuItems {
-    list-style: none;
     display: flex;
-}
-
-
-nav .menuItems li a {
-    text-decoration: none;
-    color: #8f8f8f;
-    font-size: 24px;
-    font-weight: 400;
-    transition: all 0.5s ease-in-out;
-    position: relative;
-    text-transform: uppercase;
-}
-
-nav .menuItems li a::before {
-    content: attr(data-item);
-    transition: 0.5s;
-    color: #8254ff;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 0;
-    overflow: hidden;
-}
-
-nav .menuItems li a:hover::before {
     width: 100%;
-    transition: all 0.5s ease-in-out;
+    justify-content: space-evenly;
+    color: #727272;
+}
+
+
+.menuItems a {
+    color: #555;
+    text-decoration: none;
+}
+
+.menuItems a:hover {
+    transform: scale(1.1);
+    color: #326273;
+}
+
+.menuItems a.active {
+    color: #5C9EAD;
+    border-radius: 5px;
+    padding: 5px 10px;
 }
