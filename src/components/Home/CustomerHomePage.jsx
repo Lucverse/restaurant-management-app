@@ -35,7 +35,7 @@ function CustomerHomePage() {
 
   return (
     <div className="customer-home-main">
-      <h1 className="rest-near-you">Restaurants Near You ({restaurants.length})</h1>
+      <h2 className="rest-near-you">Restaurants Near You ({restaurants.length})</h2>
       <div className="filter-container">
         <label htmlFor="type">Filter by Type:</label>
         <select id="type" name="type" value={restaurantType} onChange={handleTypeChange}>

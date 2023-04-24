@@ -32,10 +32,10 @@ function Navigation() {
                     </ul>
                     :
                     <ul className="menuItems">
-                        <NavLink to='/login' activeclassname='active-link' data-item='Login'>
+                        <NavLink to='/login' activeclassname='active-link' data-item=''>
                             Login
                         </NavLink>
-                        <NavLink to='/signup' activeclassname='active-link' data-item='signup'>
+                        <NavLink to='/signup' activeclassname='active-link' data-item=''>
                             Signup
                         </NavLink>
                     </ul>

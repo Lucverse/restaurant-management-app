@@ -55,7 +55,7 @@ function CartPage() {
 
     return (
         <div className='cart-main-page'>
-            <h1>Cart</h1>
+            <h2>Cart</h2>
             <p>Total Items: {cartItems.length}</p>
             <div className='cart-item-container'>
                 {cartItems.map(item => (

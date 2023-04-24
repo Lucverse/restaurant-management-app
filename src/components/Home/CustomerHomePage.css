@@ -67,16 +67,4 @@
     .restaurant-main-div {
         grid-template-columns: repeat(1, 1fr);
     }
-
-    .rest-near-you {
-        text-align: center;
-        padding: none;
-    }
-}
-
-@media only screen and (max-width: 426px) {
-    .rest-near-you {
-        font-size: 1.5rem;
-        padding: none;
-    }
 }

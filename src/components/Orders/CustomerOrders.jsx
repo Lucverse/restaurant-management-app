@@ -74,7 +74,7 @@ function CustomerOrders() {
     }
     return (
         <div className='orders-main-div'>
-            <h1>Your Orders</h1>
+            <h2>Your Orders</h2>
             <ShowChart
                 handlePriceClick={handlePriceClick}
                 handleQuantityClick={handleQuantityClick}

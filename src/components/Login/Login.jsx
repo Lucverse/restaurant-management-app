@@ -19,9 +19,6 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser(email, password));
-    if (user) {
-      showAlertsuccess();
-    }
   };
 
   const showAlertsuccess = () => {
@@ -37,7 +34,10 @@ const LoginForm = () => {
       setAlertMessage(error);
       setShowAlert(true);
     }
-  }, [error]);
+    if(user){
+      showAlertsuccess();
+    }
+  }, [error, user]);
 
   const handleHideAlert = () => {
     setShowAlert(false);

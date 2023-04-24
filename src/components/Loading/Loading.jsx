@@ -12,7 +12,7 @@ function Loading() {
                 <div></div>
                 <div></div>
             </div>
-            <h2 style={{ color: 'black' }}>Loading</h2>
+            <h2 style={{ color: 'black', textAlign:'center' }}>Loading</h2>
         </div>
     )
 }

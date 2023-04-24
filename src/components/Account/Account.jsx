@@ -9,7 +9,6 @@ function Account() {
     const dispatch = useDispatch();
     const [updatedUser, setUpdatedUser] = useState({ fullName: '', email: '', password: '' });
     const [isEditing, setIsEditing] = useState(false);
-
     const handleLogout = () => {
         dispatch(logoutUser());
     };
@@ -28,7 +27,7 @@ function Account() {
     };
     return (
         <div className='account-info-page'>
-            <h1>Hello {user.username}</h1>
+            <h2>Hello {user.username}</h2>
             {isEditing ?
                 <form onSubmit={handleEditSubmit} className='edit-form'>
                     <h2>Update Info</h2>

@@ -1,37 +1,20 @@
-.account-info-page h1,
-.orders-main-div h2 {
-    font-size: 26px;
+h2 {
+    font-size: 3vw;
     font-family: Century Gothic;
     text-align: left;
-    margin: none;
 }
-
-/* add to cart */
-.add-to-cart-button {
-    float: right;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    width: 150px;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-evenly;
+@media only screen and (max-width: 768px){
+    h2{
+        text-align: center;
+    }
 }
-
-.add-to-cart-button:hover {
-    animation-name: item-card-button;
-    animation-duration: 4s;
-}
-
 /* edit button */
 .card-buttons {
     position: absolute;
     bottom: 5px;
     right: 5px;
     background-color: transparent;
-    color: #007bff;
+    color: #326273;
     cursor: pointer;
     padding: 8px;
     border-radius: 7px;
@@ -42,29 +25,8 @@
 }
 
 .card-buttons:hover {
-    animation-name: card-buttons;
-    animation-duration: 2s;
-}
-
-/* button animation */
-@keyframes card-buttons {
-    from {
-        color: #007bff;
-    }
-
-    to {
-        color: green;
-    }
-}
-
-@keyframes item-card-button {
-    from {
-        background-color: #0069d9;
-    }
-
-    to {
-        background-color: green;
-    }
+    color: #5C9EAD;
+    transform: scale(1.1);
 }
 
 /* staff and customer main page */
@@ -123,7 +85,6 @@
 
 .add-item-button button,
 .cart-button-div button {
-    background-color: #0069d9;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -134,22 +95,13 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
+    background-color: #5C9EAD;
 }
 
 .add-item-button button,
 .cart-button-div button:hover {
-    animation-name: card-button;
-    animation-duration: 4s;
-}
-
-@keyframes card-button {
-    from {
-        background-color: #0069d9;
-    }
-
-    to {
-        background-color: green;
-    }
+    background-color: #326273;
+    transform: scale(1.1);
 }
 
 /* item card  */
@@ -250,7 +202,7 @@
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 0.5rem;
+    padding: 0.5rem 0.6rem;
     font-size: 1rem;
     cursor: pointer;
     margin-left: 1rem;
@@ -274,11 +226,10 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    align-items: center;
 }
 
 .order-card-div {
-    margin: 20px;
+    margin: 20px auto;
     padding: 20px;
     border-radius: 7px;
     width: 80%;
