@@ -43,7 +43,7 @@ const SignupForm = () => {
   };
   return (
     <form onSubmit={handleSubmit} className='signup-form'>
-      <h2>Signup Page</h2>
+      <h3>Signup Page</h3>
       <label>
         Full Name:
         <input

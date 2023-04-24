@@ -1,61 +1,42 @@
-.account-info-page {
-  padding: 10px 50px;
-  width: max-content;
+.account-info-page{
+  width: 95%;
+  margin: auto;
 }
-
 .account-info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.account-info-edit {
-  width: 400px;
   margin: auto;
   display: flex;
-  flex-direction: column;
   gap: 10px;
-  padding: 50px;
-  border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  position: relative;
+  width: max-content;
+  padding: 10px;
+  border-radius: 7px;
+  justify-content: space-around;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-
-.account-info-edit input {
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
+.profile-pic{
+  border-radius: 7px;
 }
-
-.account-info-edit button {
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
+.edit-account{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+}
+.edit-account:hover{
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
   cursor: pointer;
 }
-
-.account-info-edit button:hover {
-  background-color: #0056b3;
+.edit-account:active{
+  color: #007bff;
 }
-
-.account-info-edit button:last-child {
-  background-color: #ccc;
-  color: #000;
+.logout-button{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
-
-.account-info-edit button:last-child:hover {
-  background-color: #999;
-}
-
-.account-info-edit.overlay {
-  position:relative;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-.account-info img{
-    border-radius: 10px;
+@media only screen and (max-width: 426px) {
+  .account-info {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+  }
 }

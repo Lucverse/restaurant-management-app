@@ -19,6 +19,7 @@ function RestaurantPage() {
         fontWeight: 'normal',
         fontStyle: 'oblique',
         textDecoration: 'dotted underline',
+        fontFamily:'papyrus',
     }
 
     useEffect(() => {

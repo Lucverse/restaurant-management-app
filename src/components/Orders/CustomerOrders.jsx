@@ -4,6 +4,7 @@ import { API_URL } from '../../types/types';
 import OrderCard from './OrderCard';
 import Loading from '../Loading/Loading';
 import DoughnutChart from './DoughnutChart.jsx';
+import ShowChart from './ShowChart';
 
 function CustomerOrders() {
     const [orders, setOrders] = useState([]);
@@ -11,7 +12,6 @@ function CustomerOrders() {
     const userId = useSelector((state) => state.auth.user._id);
 
     const [toshow, setToShow] = useState(false);
-    const [toggleHover, setToggleHover] = useState(false);
     const [chartOption, setChartOption] = useState('quantity');
 
     useEffect(() => {
@@ -62,22 +62,25 @@ function CustomerOrders() {
             createdAt: order.createdAt,
         };
     });
+    const handleQuantityClick = () => {
+        setChartOption('quantity');
+    }
+
+    const handlePriceClick = () => {
+        setChartOption('price');
+    }
+    const handleToggle = () => {
+        setToShow(!toshow);
+    }
     return (
         <div className='orders-main-div'>
             <h1>Your Orders</h1>
-            <button className='float-toggle-switch' onClick={() => { setToShow(!toshow); setToggleHover(!toggleHover); }}>
-                {toshow ? 'Show Orders' : 'Show Chart'}
-            </button>
+            <ShowChart
+                handlePriceClick={handlePriceClick}
+                handleQuantityClick={handleQuantityClick}
+                handleToggle={handleToggle}
 
-            {toshow && (
-                <div className='order-dropdown-menu'>
-                    <select value={chartOption} onChange={(e) => setChartOption(e.target.value)}>
-                        <option value='quantity'>By Quantity </option>
-                        <option value='price'>By Price</option>
-                    </select>
-                </div>
-            )}
-
+            />
             {itemsData.map((order) => (
                 <div key={order.orderId} className='order-card-div'>
                     <p className='ordered-time-date'>
