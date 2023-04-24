@@ -6,7 +6,7 @@ import CustomerHomePage from '../Home/CustomerHomePage.jsx';
 import Pagenotfound from '../Pageoutfound/Pagenotfound';
 import SignupForm from '../SignUp/Signup';
 import LoginForm from '../Login/Login.jsx';
-import Account from '../Account/Account.js';
+import Account from '../Account/Account.jsx';
 import StaffHomePage from '../Home/StaffHomePage.jsx';
 import RestaurantOrders from '../Orders/RestaurantOrders.jsx';
 import CustomerOrders from '../Orders/CustomerOrders.jsx'

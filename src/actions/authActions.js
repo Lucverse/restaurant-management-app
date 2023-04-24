@@ -68,17 +68,21 @@ export const logoutUser = () => {
     });
   };
 };
-
-export const updateUser = (userId, updatedUser) => {
+export const updateUser = (id, updatedUser) => {
   return (dispatch) => {
-    fetch(`${API_URL}/users/${userId}`, {
+    fetch(`${API_URL}/users/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(updatedUser)
     })
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then(data => {
         console.log('User updated successfully:', data);
         dispatch({
@@ -88,7 +92,6 @@ export const updateUser = (userId, updatedUser) => {
       })
       .catch(error => {
         console.error('Error updating user:', error);
-        // You can dispatch an error action or handle the error as needed
       });
   };
 };
