@@ -3,7 +3,7 @@ nav {
     justify-content: center;
     position: relative;
     font-family: Hack, monospace;
-    background-color:seashell;
+    background-color: seashell;
 }
 
 .menuItems {
@@ -27,5 +27,21 @@ nav {
 .menuItems a.active {
     color: #5C9EAD;
     border-radius: 5px;
-    padding: 5px 10px;
+}
+
+.menuItems a:hover::after {
+    content: attr(data-item);
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nav-bar .cart-link{
+    position: relative;
+}
+.nav-bar .cart-length{
+    position: absolute;
+    top: -10px;
+    right: -10px;
 }

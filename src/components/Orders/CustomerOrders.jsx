@@ -95,7 +95,7 @@ function CustomerOrders() {
                                     {
                                         label: chartOption === 'quantity' ? 'Order Items Quantity' : 'Order Items Total Price',
                                         data: order.items.map((item) => chartOption === 'quantity' ? item.quantity : item.price * item.quantity),
-                                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                                        backgroundColor: ['#F1948A', '#A569BD', '#2E86C1', '#A9DFBF', '#F7DC6F', '#D0D3D4'],
                                     },
                                 ],
                             }}
