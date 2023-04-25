@@ -9,6 +9,8 @@ function Navigation() {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
     const cartItems = useSelector(state => state.cart.cartItems);
     const cartLength = cartItems ? cartItems.length : 0;
+    const userType = useSelector(state => state.auth);
+    const isStaff = isLoggedIn ? userType.user.userType === 'staff' : '';
     return (
         <nav className='nav-bar'>
             {
@@ -17,12 +19,17 @@ function Navigation() {
                         <NavLink to='/' activeclassname='active-link' data-item='Home'>
                             <FontAwesomeIcon icon={faHomeUser} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
                         </NavLink>
-                        <NavLink to='/cart' activeclassname='active-link' data-item='Cart' className='cart-link'>
-                            <span className='cart-length'>
-                                {cartLength}
-                            </span>
-                            <FontAwesomeIcon icon={faCartShopping} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
-                        </NavLink>
+                        {
+                            !isStaff ? <NavLink to='/cart' activeclassname='active-link' data-item='Cart' className='cart-link'>
+                                <span className='cart-length'>
+                                    {cartLength}
+                                </span>
+                                <FontAwesomeIcon icon={faCartShopping} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
+                            </NavLink>
+                                :
+                                <></>
+                        }
+
                         <NavLink to='/orders' activeclassname='active-link' data-item='Orders'>
                             <FontAwesomeIcon icon={faHistory} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
                         </NavLink>
