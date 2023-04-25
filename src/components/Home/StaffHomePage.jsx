@@ -3,12 +3,13 @@ import AddItem from "../AddItem/AddItem";
 import ItemCard from "../Items/ItemCard";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchItems } from "../../actions/itemsActions";
+import RegisterRestaurantFirst from "../RegisterRestaurant/RegisterRestaurantFirst";
 
 function StaffHomePage() {
     const dispatch = useDispatch();
     const [showAddItem, setShowAddItem] = useState(false);
     const items = useSelector(state => state.item.items);
-    const isRestaurant = useSelector(state => state.auth.user.restaurantName) !== 'undefined';
+    const isRestaurant = useSelector(state => state.auth.user.restaurantName);
     const user = useSelector(state => state.auth.user);
     const restaurantName = isRestaurant ? user.restaurantName : null;
     const totalItems = items.length;
@@ -59,7 +60,7 @@ function StaffHomePage() {
                     {showAddItem && <AddItem onCancel={handleCancel} />}
                 </>
             ) : (
-                <h2>Register a restaurant first.</h2>
+                <RegisterRestaurantFirst/>
             )}
         </div>
     );

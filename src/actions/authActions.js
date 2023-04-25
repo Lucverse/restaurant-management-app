@@ -35,7 +35,7 @@ export const loginUser = (email, password) => {
           })
             .then(response => response.json())
             .then(restaurantData => {
-              const restaurant = restaurantData.filter(item => item.staff.includes(user.username))[0];
+              const restaurant = restaurantData.filter(item => item.staff.includes(user._id))[0];
               const restaurantName = restaurant ? restaurant.restaurantName : null;
               const loggedInUser = { ...user, isLoggedIn: true, restaurantName: restaurantName };
               dispatch(loginSuccess(loggedInUser));
