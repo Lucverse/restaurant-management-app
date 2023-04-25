@@ -35,7 +35,8 @@ export const loginUser = (email, password) => {
           })
             .then(response => response.json())
             .then(restaurantData => {
-              const restaurantName = restaurantData.filter(item => item.staff.includes(user.username))[0].restaurantName;
+              const restaurant = restaurantData.filter(item => item.staff.includes(user.username))[0];
+              const restaurantName = restaurant ? restaurant.restaurantName : null;
               const loggedInUser = { ...user, isLoggedIn: true, restaurantName: restaurantName };
               dispatch(loginSuccess(loggedInUser));
             })
@@ -44,11 +45,9 @@ export const loginUser = (email, password) => {
               dispatch(loginFailure('Error fetching restaurant data'));
             });
         } else if (user) {
-          // If the user type is not staff, dispatch user info only
           const loggedInUser = { ...user, isLoggedIn: true };
           dispatch(loginSuccess(loggedInUser));
         } else {
-          // If the user is not found, dispatch login failure with error message
           dispatch(loginFailure('User not found'));
         }
       })

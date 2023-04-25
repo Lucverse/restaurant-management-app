@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRestaurants } from "../../actions/restaurantAction";
 import RestaurantCard from "../RestaurantPage/RestaurantCard";
-import "./CustomerHomePage.css";
 import Loading from "../Loading/Loading";
 
 function CustomerHomePage() {
@@ -26,7 +25,7 @@ function CustomerHomePage() {
       : restaurants.filter((restaurant) => restaurant.type === restaurantType);
 
   if (loading) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   if (error) {
