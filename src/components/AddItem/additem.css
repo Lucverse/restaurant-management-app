@@ -4,18 +4,20 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.add-item-main h1{
+  text-align: center;
 }
 
 .add-item-main {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 .add-item-form {
@@ -29,21 +31,33 @@
   margin-top: 10px;
 }
 
-.add-item-form input,
 .add-item-form select,
+.add-item-form input,
 .add-item-form textarea {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
-  max-width: 100vh;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  display: block;
+  height: 40px;
+  width: 90%;
+  background-color: #5c9ead2d;
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  min-width: 95%;
+  max-width: 380px;
 }
-
+.add-item-form .itemDescription{
+  padding: 10px;
+}
+.add-item-buttons{
+  display: flex;
+  justify-content: space-between;
+}
 .add-item-form button {
   padding: 10px;
   margin-top: 10px;
-  background-color: #4CAF50;
+  background-color: #5C9EAD;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -52,17 +66,11 @@
 }
 
 .add-item-form button:hover {
-  background-color: #3e8e41;
+  background-color: #326273;
 }
 
 .add-item-form button:active {
-  background-color: #3e8e41;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
-  transform: translateY(1px);
-}
-
-.add-item-form button:focus {
-  outline: none;
 }
 
 .add-item-form .cancel-button {
@@ -74,12 +82,3 @@
   background-color: #d32f2f;
 }
 
-.add-item-form .cancel-button:active {
-  background-color: #d32f2f;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
-  transform: translateY(1px);
-}
-
-.add-item-form button.cancel:focus {
-  outline: none;
-}

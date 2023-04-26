@@ -11,19 +11,6 @@
     padding: 50px 35px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
- form * {
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-}
-.login-page  h3 {
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-}
-
 .login-page label {
     display: block;
     margin-top: 30px;
