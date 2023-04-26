@@ -182,7 +182,7 @@ h2 {
     background-color: #5C9EAD;
 }
 
-.add-item-button button,
+.add-item-button button:hover,
 .cart-button-div button:hover {
     background-color: #326273;
     transform: scale(1.1);
@@ -245,13 +245,9 @@ h2 {
     position: absolute;
     top: 5px;
     right: 5px;
-    font-size: 1.5rem;
-    color: white;
+    background-color: white;
     width: 1.5rem;
     height: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /* cart  */

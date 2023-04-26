@@ -86,12 +86,14 @@ function AddItem({ onCancel }) {
                         id="itemDescription"
                         placeholder="Item Description"
                         value={itemDescription}
+                        className="itemDescription"
                         onChange={(e) => setItemDescription(e.target.value)}
                         required
                     ></textarea>
                     <label htmlFor="itemType">Item Type</label>
                     <select
                         id="itemType"
+                        className="itemType"
                         value={itemType}
                         onChange={(e) => setItemType(e.target.value)}
                         required

@@ -9,8 +9,10 @@
   align-items: center;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
 }
-.add-item-main h1{
+
+.add-item-main h1 {
   text-align: center;
 }
 
@@ -44,16 +46,21 @@
   margin-top: 8px;
   font-size: 14px;
   font-weight: 300;
-  min-width: 95%;
+  min-width: 90%;
   max-width: 380px;
 }
-.add-item-form .itemDescription{
+
+.add-item-form .itemDescription {
   padding: 10px;
+  min-height: 20px;
 }
-.add-item-buttons{
+
+.add-item-buttons {
+  width: 97%;
   display: flex;
   justify-content: space-between;
 }
+
 .add-item-form button {
   padding: 10px;
   margin-top: 10px;
@@ -82,3 +89,17 @@
   background-color: #d32f2f;
 }
 
+.add-item-form select {
+  width: 95%;
+}
+
+@media only screen and (max-width: 540px) {
+  .add-item-form {
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 321px) {
+  .add-item-form {
+    width: 290px;
+  }
+}
