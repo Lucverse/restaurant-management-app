@@ -12,10 +12,13 @@ function StaffHomePage() {
     const isRestaurant = useSelector(state => state.auth.user.restaurantName);
     const user = useSelector(state => state.auth.user);
     const restaurantName = isRestaurant ? user.restaurantName : null;
-    const totalItems = items.length;
+    
+    const filteredItems = items.filter(item => item.restaurantName === restaurantName);
+    const totalItems = filteredItems.length;
+
     useEffect(() => {
         if (restaurantName) {
-            dispatch(fetchItems(restaurantName));
+            dispatch(fetchItems());
         }
     }, [dispatch, restaurantName]);
 
@@ -43,7 +46,7 @@ function StaffHomePage() {
                         </div>
                     )}
                     <div className="item-card-container">
-                        {items.map((item) => (
+                        {filteredItems.map((item) => (
                             <ItemCard
                                 key={item.itemName}
                                 name={item.itemName}
@@ -65,5 +68,6 @@ function StaffHomePage() {
         </div>
     );
 }
+
 
 export default StaffHomePage;
