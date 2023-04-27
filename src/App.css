@@ -5,23 +5,27 @@ form * {
     outline: none;
     border: none;
 }
+
 .login-page h3,
-.add-item-main h3{    
+.add-item-main h3 {
     font-size: 30px;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
 }
+
 h2 {
     font-size: 3vw;
     font-family: Century Gothic;
     text-align: left;
 }
-@media only screen and (max-width: 768px){
-    h2{
+
+@media only screen and (max-width: 768px) {
+    h2 {
         text-align: center;
     }
 }
+
 /* edit button */
 .card-buttons {
     position: absolute;
@@ -51,6 +55,7 @@ h2 {
     width: 95%;
     margin: auto;
 }
+
 .item-card-container,
 .restaurant-main-div {
     display: grid;
@@ -158,6 +163,7 @@ h2 {
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
 /* add item */
 .add-item-button,
 .cart-button-div {
@@ -166,6 +172,7 @@ h2 {
     right: 20px;
     z-index: 1;
 }
+
 .register-rest-button,
 .add-item-button button,
 .cart-button-div button {
@@ -181,6 +188,7 @@ h2 {
     border-radius: 5px;
     background-color: #5C9EAD;
 }
+
 .register-rest-button:hover,
 .add-item-button button:hover,
 .cart-button-div button:hover {
@@ -459,10 +467,12 @@ h2 {
     .sidebar {
         display: none;
     }
+
     .menu {
         bottom: 20px;
         right: 20px;
     }
+
     .menuItems a {
         margin: 0 0px;
     }
@@ -471,13 +481,14 @@ h2 {
 
 
 /* page not found */
-.PageNotFound{
+.PageNotFound {
     margin: auto;
     width: max-content;
     align-items: center;
     text-align: center;
 }
-.go-back{
+
+.go-back {
     margin: auto;
     width: max-content;
     display: flex;
@@ -489,7 +500,26 @@ h2 {
 
 /* register-rest-first */
 
-.register-rest-first{
+.register-rest-first {
     text-align: center;
     align-items: center;
+}
+
+/* nothing-display-main */
+.nothing-display-main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.nothing-display-icon {
+    font-size: 74px;
+    margin-bottom: 20px;
+}
+
+.nothing-display-text {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
 }

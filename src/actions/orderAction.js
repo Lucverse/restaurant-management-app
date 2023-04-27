@@ -44,3 +44,27 @@ export const fetchOrders = () => {
     }
   };
 };
+export const fetchOrdersByUserId = (userId) => {
+  return (dispatch) => {
+    dispatch(fetchOrdersRequest());
+    try {
+      fetch(`${API_URL}/orders/user/${userId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          dispatch(fetchOrdersSuccess(data));
+        })
+        .catch(error => {
+          console.error("Error fetching orders data: ", error);
+          dispatch(fetchOrdersFailure(error.message));
+        });
+    } catch (error) {
+      console.error("Error fetching orders data: ", error);
+      dispatch(fetchOrdersFailure(error.message));
+    }
+  };
+};

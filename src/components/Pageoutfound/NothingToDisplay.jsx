@@ -1,11 +1,14 @@
 import './nothingtodisplay.css'
+import { FaBoxOpen } from 'react-icons/fa';
 
-function NothingToDisplay(){
-    
-    return(
+function NothingToDisplay({ text = "It's empty for now" }) {
+    return (
         <div className="nothing-display-main">
-            <h1>Nothing to display</h1>
+
+            <FaBoxOpen className="nothing-display-icon" />
+            <h1 className="nothing-display-text">{text}</h1>
         </div>
     )
 }
+
 export default NothingToDisplay;

@@ -1,38 +1,29 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { API_URL } from '../../types/types';
 import OrderCard from './OrderCard';
 import Loading from '../Loading/Loading';
 import DoughnutChart from './DoughnutChart.jsx';
 import ShowChart from './ShowChart';
 import { fetchItems } from '../../actions/itemsActions';
+import { fetchOrdersByUserId } from '../../actions/orderAction';
 
 function CustomerOrders() {
     const dispatch = useDispatch();
 
     const items = useSelector(state => state.item.items);
     const userId = useSelector((state) => state.auth.user._id);
-    
-    const [orders, setOrders] = useState([]);
+    const isLoading = useSelector(state => state.item.loading);
+    const orders = useSelector(state => state.order.orders);
+
     const [toshow, setToShow] = useState(false);
     const [chartOption, setChartOption] = useState('quantity');
+
     useEffect(() => {
         dispatch(fetchItems());
-    }, [dispatch]);
-    useEffect(() => {
-        const fetchOrders = async () => {
-            try {
-                const response = await fetch(`${API_URL}/orders/user/${userId}`);
-                const data = await response.json();
-                setOrders(data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchOrders();
-    }, [userId]);
+        dispatch(fetchOrdersByUserId(userId));
+    }, [dispatch, userId]);
 
-    if (!items.length) {
+    if (isLoading) {
         return <Loading />;
     }
 
@@ -54,6 +45,7 @@ function CustomerOrders() {
             createdAt: order.createdAt,
         };
     });
+
     const handleQuantityClick = () => {
         setChartOption('quantity');
     }
