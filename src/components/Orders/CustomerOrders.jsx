@@ -8,9 +8,8 @@ import ShowChart from './ShowChart';
 
 function CustomerOrders() {
     const [orders, setOrders] = useState([]);
-    const [items, setItems] = useState([]);
+    const items = useSelector(state => state.item.items);
     const userId = useSelector((state) => state.auth.user._id);
-
     const [toshow, setToShow] = useState(false);
     const [chartOption, setChartOption] = useState('quantity');
 
@@ -26,19 +25,6 @@ function CustomerOrders() {
         };
         fetchOrders();
     }, [userId]);
-
-    useEffect(() => {
-        const fetchItems = async () => {
-            try {
-                const response = await fetch(`${API_URL}/items`);
-                const data = await response.json();
-                setItems(data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchItems();
-    }, []);
 
     if (!items.length) {
         return <Loading />;
