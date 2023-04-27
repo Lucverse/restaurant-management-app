@@ -45,12 +45,12 @@ h2 {
 
 /* staff and customer main page */
 
+.rest-orders-main,
 .staff-home-main,
 .customer-home-main {
     width: 95%;
     margin: auto;
 }
-
 .item-card-container,
 .restaurant-main-div {
     display: grid;
