@@ -9,6 +9,7 @@ import Loading from '../Loading/Loading.jsx';
 import DoughnutChart from './DoughnutChart.jsx';
 import ShowChart from './ShowChart.jsx';
 import { fetchRestaurants } from '../../actions/restaurantAction';
+import NothingToDisplay from '../Pageoutfound/NothingToDisplay';
 
 function RestaurantOrders() {
     const dispatch = useDispatch();
@@ -33,10 +34,12 @@ function RestaurantOrders() {
     }, [dispatch]);
 
 
+    if(!restaurantName){
+        return <NothingToDisplay/>;
+    }
     if (loading) {
         return <Loading />;
     }
-
     if (error) {
         return <h2 style={{ textAlign: 'center' }}>Error: {error}</h2>;
     }
@@ -57,7 +60,7 @@ function RestaurantOrders() {
                 }));
             }
 
-            return []; // Skip this order item if no items for the given restaurant name
+            return [];
         });
 
         return {
