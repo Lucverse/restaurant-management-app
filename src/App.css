@@ -44,8 +44,8 @@ h2 {
 }
 
 /* staff and customer main page */
-
-.rest-orders-main,
+.nothing-display-main,
+.orders-main-div,
 .staff-home-main,
 .customer-home-main {
     width: 95%;
@@ -166,7 +166,7 @@ h2 {
     right: 20px;
     z-index: 1;
 }
-
+.register-rest-button,
 .add-item-button button,
 .cart-button-div button {
     border: none;
@@ -181,7 +181,7 @@ h2 {
     border-radius: 5px;
     background-color: #5C9EAD;
 }
-
+.register-rest-button:hover,
 .add-item-button button:hover,
 .cart-button-div button:hover {
     background-color: #326273;
@@ -484,4 +484,12 @@ h2 {
     gap: 20px;
     text-decoration: none;
     color: black;
+}
+
+
+/* register-rest-first */
+
+.register-rest-first{
+    text-align: center;
+    align-items: center;
 }
