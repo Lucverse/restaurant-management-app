@@ -1,22 +1,28 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from '../../types/types';
 import OrderCard from './OrderCard';
 import Loading from '../Loading/Loading';
 import DoughnutChart from './DoughnutChart.jsx';
 import ShowChart from './ShowChart';
+import { fetchItems } from '../../actions/itemsActions';
 
 function CustomerOrders() {
-    const [orders, setOrders] = useState([]);
+    const dispatch = useDispatch();
+
     const items = useSelector(state => state.item.items);
     const userId = useSelector((state) => state.auth.user._id);
+    
+    const [orders, setOrders] = useState([]);
     const [toshow, setToShow] = useState(false);
     const [chartOption, setChartOption] = useState('quantity');
-
+    useEffect(() => {
+        dispatch(fetchItems());
+    }, [dispatch]);
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await fetch(`${API_URL}/orders?userId=${userId}`);
+                const response = await fetch(`${API_URL}/orders/user/${userId}`);
                 const data = await response.json();
                 setOrders(data);
             } catch (error) {
