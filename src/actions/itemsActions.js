@@ -20,7 +20,7 @@ export const fetchItemsFailure = (error) => {
   };
 };
 
-export const fetchItems = (restaurantName) => {
+export const fetchItems = () => {
   return (dispatch) => {
     dispatch(fetchItemsRequest());
     try {
@@ -32,8 +32,7 @@ export const fetchItems = (restaurantName) => {
       })
         .then(response => response.json())
         .then(data => {
-          const filteredData = data.filter(item => item.restaurantName === restaurantName);
-          dispatch(fetchItemsSuccess(filteredData));
+          dispatch(fetchItemsSuccess(data));
         })
         .catch(error => {
           console.error("Error fetching items data: ", error);
