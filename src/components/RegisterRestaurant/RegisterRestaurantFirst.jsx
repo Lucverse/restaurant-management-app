@@ -7,9 +7,9 @@ function RegisterRestaurantFirst() {
         setDisplay(false);
     }
     return (
-        <div>
-            <h2>Register a restaurant first.</h2>
-            <button onClick={() => setDisplay(true)}>Register Restaurant</button>
+        <div className="register-rest-first">
+            <h1>Register A Restaurant First!</h1>
+            <button onClick={() => setDisplay(true)} className="register-rest-button">Register Restaurant</button>
             {display ? <RegisterRestaurant onClose={onClose} /> : <></>}
         </div>
     )
