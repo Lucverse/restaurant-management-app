@@ -1,4 +1,3 @@
-
 .menu {
     position: fixed;
     padding: 30px;
@@ -39,6 +38,7 @@
 .menu.open::after {
     transform: rotate(-45deg);
 }
+
 .menu.open .button {
     opacity: 1;
     pointer-events: auto;
@@ -80,4 +80,33 @@
 
 .button:hover {
     transform: scale(1.1);
+}
+
+@media only screen and (max-width: 541px) {
+    .menu {
+        padding: 20px;
+    }
+    .menu::before,
+    .menu::after {
+        width: 20px;
+        left: 10px;
+        top: 18px;
+    }
+    .button{
+        padding: 20px;
+    }
+    .menu.open .button:first-of-type {
+        bottom: 0px;
+        right: 60px;
+    }
+    
+    .menu.open .button:nth-of-type(2) {
+        bottom: 45px;
+        right: 45px;
+    }
+    
+    .menu.open .button:last-of-type {
+        bottom: 70px;
+        right: 0px;
+    }
 }
