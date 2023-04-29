@@ -15,17 +15,23 @@ form * {
 }
 
 h2 {
-    font-size: 3vw;
+    font-size: 2vw;
     font-family: Century Gothic;
     text-align: left;
 }
 
 @media only screen and (max-width: 768px) {
     h2 {
+        font-size: 3vw;
         text-align: center;
     }
 }
-
+@media only screen and (max-width: 541px) {
+    h2 {
+        font-size: 5vw;
+        text-align: center;
+    }
+}
 /* edit button */
 .card-buttons {
     position: absolute;
@@ -48,12 +54,14 @@ h2 {
 }
 
 /* staff and customer main page */
+.cart-main-page,
 .nothing-display-main,
 .orders-main-div,
 .staff-home-main,
 .customer-home-main {
     width: 95%;
     margin: auto;
+    padding-bottom: 50px;
 }
 
 .item-card-container,
@@ -85,14 +93,15 @@ h2 {
     }
 }
 
-@media only screen and (max-width: 426px) {
-
+@media only screen and (max-width: 541px) {
     .order-card-image,
     .item-card-image {
-        width: 150px;
+        min-width: 150px;
+    }
+    .rest-name{
+        display: none;
     }
 }
-
 
 /* pagination */
 .pagination {
@@ -513,6 +522,7 @@ h2 {
     text-align: center;
     align-items: center;
 }
+
 .nothing-display-icon {
     font-size: 74px;
     margin-bottom: 20px;
