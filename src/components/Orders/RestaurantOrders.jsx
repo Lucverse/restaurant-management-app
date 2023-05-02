@@ -48,7 +48,7 @@ function RestaurantOrders() {
             const itemId = item.id;
             const filteredItems = items.filter(item => item._id === itemId);
             const restaurantItems = filteredItems.filter(item => item.restaurantName === restaurantName);
-
+            // console.log(restaurantItems);
             if (restaurantItems.length > 0) {
                 return restaurantItems.map(restaurantItem => ({
                     id: item.id,
@@ -82,6 +82,10 @@ function RestaurantOrders() {
     const handleToggle = () => {
         setToShow(!toshow);
     }
+    if (itemsData.every((data) => data.items.length === 0)) {
+        return <h2 style={{textAlign:'center'}}>No data to display</h2>;
+      }
+      
     return (
         <div className='orders-main-div'>
             <h2>Restaurant Orders</h2>
