@@ -5,6 +5,9 @@ form * {
     outline: none;
     border: none;
 }
+body{
+    background-color: #EAFAF1;
+}
 
 .login-page h3,
 .add-item-main h3 {
@@ -214,6 +217,7 @@ h2 {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 7px;
     height: 200px;
+    background-color: white;
 }
 
 .item-card-image {
@@ -332,6 +336,7 @@ h2 {
     width: 80%;
     max-width: 700px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;
 }
 
 .order-card-div .item-card {
