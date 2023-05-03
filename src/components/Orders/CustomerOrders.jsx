@@ -14,6 +14,7 @@ function CustomerOrders() {
     const userId = useSelector((state) => state.auth.user._id);
     const isLoading = useSelector(state => state.item.loading);
     const orders = useSelector(state => state.order.orders);
+    const error = useSelector(state => state.order.error);
 
     const [toshow, setToShow] = useState(false);
     const [chartOption, setChartOption] = useState('quantity');
@@ -56,6 +57,7 @@ function CustomerOrders() {
     const handleToggle = () => {
         setToShow(!toshow);
     }
+    
     return (
         <div className='orders-main-div'>
             <h2>Your Orders</h2>
