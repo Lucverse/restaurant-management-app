@@ -57,7 +57,9 @@ function CustomerOrders() {
     const handleToggle = () => {
         setToShow(!toshow);
     }
-    
+    if (error) {
+        return <h2 style={{ textAlign: 'center' }}>Error: {error}</h2>;
+    }
     return (
         <div className='orders-main-div'>
             <h2>Your Orders</h2>
