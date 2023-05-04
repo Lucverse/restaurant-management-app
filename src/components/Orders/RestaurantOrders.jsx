@@ -32,8 +32,6 @@ function RestaurantOrders() {
     useEffect(() => {
         dispatch(fetchRestaurants);
     }, [dispatch]);
-
-
     if(!restaurantName){
         return <NothingToDisplay/>;
     }
