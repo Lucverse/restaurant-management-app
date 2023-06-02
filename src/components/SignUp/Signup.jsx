@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Signup.css';
-import { API_URL } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
