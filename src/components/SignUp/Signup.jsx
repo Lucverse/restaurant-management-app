@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Signup.css';
+import { API_URL } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
@@ -19,14 +20,30 @@ const SignupForm = () => {
       userType,
       username
     };
-    alert(data.message);
-    setFullName('');
-    setEmail('');
-    setPassword('');
-    setUserType('');
-    setUsername('');
-    navigate('/');
-  }
+
+    fetch(`${API_URL}/users`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newUser)
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          alert(data.error);
+        } else {
+          alert(data.message);
+          setFullName('');
+          setEmail('');
+          setPassword('');
+          setUserType('');
+          setUsername('');
+          navigate('/');
+        }
+      })
+      .catch(error => console.error('Error creating user:', error));
+  };
 return (
   <form onSubmit={handleSubmit} className='signup-form'>
     <h3>Signup Page</h3>
