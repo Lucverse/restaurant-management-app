@@ -7,7 +7,7 @@ function NoItem() {
         <div className='emptycartdiv'>
             <img src={emptyCartImage} alt="Empty Cart" className='emptycartimage' />
             <h1>Add Items to your cart</h1>
-            <NavLink to="/">Home</NavLink>
+            {/* <NavLink to="/">Home</NavLink> */}
         </div>
     );
 }

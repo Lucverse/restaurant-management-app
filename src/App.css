@@ -547,7 +547,13 @@ h2 {
 .emptycartimage{
     mix-blend-mode:darken;
 }
+
+.emptycartdiv h1{
+    color: #5C9EAD;
+}
 .emptycartdiv a{
+    font-size: 25px;
     color: black;
+    font-weight: bold;
     text-decoration: none;
 }
