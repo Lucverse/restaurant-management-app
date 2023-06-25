@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { API_URL } from '../../types/types';
 import { clearCart } from '../../actions/cartActions';
 import { useSelector, useDispatch } from 'react-redux';
+import Noitem from '../No Items/NoItems';
 
 function CartPage() {
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
@@ -55,20 +56,24 @@ function CartPage() {
 
     return (
         <div className='cart-main-page'>
-            <h2>Total Items: {cartItems.length}</h2>
-            <div className='cart-item-container'>
-                {cartItems.map(item => (
-                    <CartItem key={item.item.name} item={item.item} itemquantity={item.quantity} />
-                ))}
-            </div>
+
             {
+
                 cartItems.length > 0 ?
-                    <div className='order-button-div'>
-                        <button className='order-now-button' onClick={handleOrderNow}>
-                            Order Now {`₹${totalPrice.toFixed(2)}`}
-                        </button>
-                    </div> :
-                    <></>
+                    <>
+                        <h2>Total Items: {cartItems.length}</h2>
+                        <div className='cart-item-container'>
+                            {cartItems.map(item => (
+                                <CartItem key={item.item.name} item={item.item} itemquantity={item.quantity} />
+                            ))}
+                        </div>
+                        <div className='order-button-div'>
+                            <button className='order-now-button' onClick={handleOrderNow}>
+                                Order Now {`₹${totalPrice.toFixed(2)}`}
+                            </button>
+                        </div>
+                    </> :
+                    <><Noitem /></>
             }
             {showSuccessAlert && <Alert type='success' message={successMessage} onHide={handleSuccessAlertClose} />}
             {showErrorAlert && <Alert type='error' message={errorMessage} onHide={handleErrorAlertClose} />}
