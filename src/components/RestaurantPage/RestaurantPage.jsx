@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import Loading from "../Loading/Loading";
 import ItemCard from "../Items/ItemCard";
-
+    
 function RestaurantPage() {
     const { restaurantName } = useParams();
     const dispatch = useDispatch();
@@ -34,7 +34,6 @@ function RestaurantPage() {
     if (isLoading) {
         return <Loading />;
     }
-
     return (
         <div>
             <h1 style={restNameStyle}>{restaurantName}</h1>

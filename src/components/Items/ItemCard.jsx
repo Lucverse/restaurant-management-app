@@ -1,7 +1,8 @@
 import React from "react";
 import EditItem from "./EditItem";
 import AddToCart from "./AddToCard";
-const ItemCard = ({ name, imageUrl, description, price, type, userType, id}) => {
+
+const ItemCard = ({ name, imageUrl, description, price, type, userType, id }) => {
     const isVegetarian = type === "vegetarian";
     const isCustomer = userType === "customer";
     return (
@@ -16,6 +17,7 @@ const ItemCard = ({ name, imageUrl, description, price, type, userType, id}) => 
                 src={imageUrl}
                 alt={name}
             ></img>
+
             <div className="item-card-content">
                 <p className="item-card-name">{name}</p>
                 <p className="item-card-description">{description}</p>
