@@ -8,7 +8,6 @@ export const loginSuccess = (user) => {
     });
   };
 };
-
 export const loginFailure = (error) => {
   return {
     type: LOGIN_FAILURE,
@@ -57,9 +56,6 @@ export const loginUser = (email, password) => {
       });
   };
 };
-
-
-
 export const logoutUser = () => {
   return (dispatch) => {
     dispatch({
