@@ -2,8 +2,10 @@ import './navigation.css'
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Sidebar from '../Sidebar/Sidebar';
+import brandlogo from "../../media/brand-logo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHomeUser, faCartShopping, faHistory, faUserLarge } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faUserLarge, faBars } from '@fortawesome/free-solid-svg-icons';
 
 function Navigation() {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -11,31 +13,55 @@ function Navigation() {
     const cartLength = cartItems ? cartItems.length : 0;
     const userType = useSelector(state => state.auth);
     const isStaff = isLoggedIn ? userType.user.userType === 'staff' : '';
+    function print(){
+        console.log('clicked');
+    }
     return (
         <nav className='nav-bar'>
+            <div className="logo">
+                <img src={brandlogo} alt="some" />
+            </div>
             {
                 isLoggedIn ?
                     <ul className="menuItems">
-                        <NavLink to='/' activeclassname='active-link' data-item='Home'>
-                            <FontAwesomeIcon icon={faHomeUser} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
-                        </NavLink>
-                        {
-                            !isStaff ? <NavLink to='/cart' activeclassname='active-link' data-item='Cart' className='cart-link'>
-                                <span className='cart-length'>
-                                    {cartLength}
-                                </span>
-                                <FontAwesomeIcon icon={faCartShopping} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
+                        <div className='text-nav'>
+                            <NavLink to="/" activeclassname="active-link" className="text-link">
+                                Home
                             </NavLink>
-                                :
-                                <></>
-                        }
-
-                        <NavLink to='/orders' activeclassname='active-link' data-item='Orders'>
-                            <FontAwesomeIcon icon={faHistory} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
-                        </NavLink>
-                        <NavLink to='/account' activeclassname='active-link' data-item='Profile'>
-                            <FontAwesomeIcon icon={faUserLarge} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
-                        </NavLink>
+                            <NavLink
+                                to="/orders"
+                                activeclassname="active-link"
+                                className="text-link"
+                            >
+                                Orders
+                            </NavLink>
+                            <NavLink
+                                to="/recipe"
+                                activeclassname="active-link"
+                                className="text-link"
+                            >
+                                Recipe
+                            </NavLink>
+                        </div>
+                        <div className='icon-nav'>
+                            {
+                                !isStaff ?
+                                    <NavLink to='/cart' activeclassname='active-link' data-item='Cart' className='cart-link'>
+                                        <span className='cart-length'>
+                                            {cartLength}
+                                        </span>
+                                        <FontAwesomeIcon icon={faCartShopping} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
+                                    </NavLink>
+                                    :
+                                    <></>
+                            }
+                            <NavLink to='/account' activeclassname='active-link' data-item='Profile'>
+                                <FontAwesomeIcon icon={faUserLarge} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
+                            </NavLink>
+                            <button className="sidebar-button" onClick={print}> 
+                                <FontAwesomeIcon icon={faBars} />
+                            </button>
+                        </div>
                     </ul>
                     :
                     <ul className="menuItems">
@@ -47,6 +73,7 @@ function Navigation() {
                         </NavLink>
                     </ul>
             }
+
         </nav>
     );
 }
