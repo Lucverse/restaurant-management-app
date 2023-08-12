@@ -1,35 +1,39 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import './sidebar.css'
+import './Sidebar.css';
 
 function Sidebar() {
-    const [isActive, setIsActive] = useState(false);
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-    const toggleActive = () => setIsActive(!isActive);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
 
     return (
-        <div className='sidebar'>
-            <input type="checkbox" id="active" checked={isActive} onChange={toggleActive} />
-            <label htmlFor="active" className="menu-btn"><FontAwesomeIcon icon={faBars} /></label>
-            <div className={`wrapper ${isActive ? 'active' : ''}`}>
-                {isLoggedIn ? <ul>
-                    <li><NavLink to="/">Home</NavLink></li>
-                    <li><NavLink to="/orders">History</NavLink></li>
-                    <li><NavLink to="/account">Account</NavLink></li>
-                    <li><NavLink to="/cart">Cart</NavLink></li>
-                </ul> :
-                    <ul>
-                        <li><NavLink to="/login">Login</NavLink></li>
-                        <li><NavLink to="/signup">Sign up</NavLink></li>
-                    </ul>
-                }
-            </div>
+        <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+            <button className="sidebar-button" onClick={toggleSidebar}>
+                X
+            </button>
+            <ul className="sidebar-links">
+                <li>
+                    <NavLink to="/" onClick={toggleSidebar}>
+                        Home
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/orders" onClick={toggleSidebar}>
+                        Orders
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/recipe" onClick={toggleSidebar}>
+                        Recipe
+                    </NavLink>
+                </li>
+            </ul>
         </div>
     );
 }
-
 export default Sidebar;
