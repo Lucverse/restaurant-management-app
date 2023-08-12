@@ -1,60 +1,56 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchRestaurants } from "../../actions/restaurantAction";
-import RestaurantCard from "../RestaurantPage/RestaurantCard";
-import Loading from "../Loading/Loading";
+import Break from "../Break/Break";
+import CarouselComponent from "../Carousel/CarouselComponent";
+import Footer from "../Footer/Footer";
+import NearByRestaurant from "../NearByRestaurant/NearByRestaurant";
+import RecipeComponent from "../Recipe/RecipeComponent";
+import ReviewCarousel from "../Review/Review";
 
 function CustomerHomePage() {
-  const [restaurantType, setRestaurantType] = useState("All");
-
-  const dispatch = useDispatch();
-  const { restaurants, loading, error } = useSelector((state) => state.restaurant);
-
-  useEffect(() => {
-    dispatch(fetchRestaurants());
-  }, [dispatch]);
-
-  const handleTypeChange = (event) => {
-    const selectedType = event.target.value;
-    setRestaurantType(selectedType);
-  };
-
-  const filteredRestaurants =
-    restaurantType === "All"
-      ? restaurants
-      : restaurants.filter((restaurant) => restaurant.type === restaurantType);
-
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
+  const reviews = [
+    {
+        rating: 4,
+        text: "Amazing food! Loved the experience.",
+        user: "Alice Johnson"
+    },
+    {
+        rating: 5,
+        text: "The best restaurant in town. Highly recommended!",
+        user: "Bob Smith"
+    },
+    {
+        rating: 4,
+        text: "Great atmosphere and delicious dishes. Will come back again.",
+        user: "Catherine Brown"
+    },
+    {
+        rating: 3,
+        text: "Decent place with good variety of options.",
+        user: "David Miller"
+    },
+    {
+        rating: 5,
+        text: "Absolutely fantastic. Every dish is a masterpiece!",
+        user: "Ella Davis"
+    },
+    {
+        rating: 4,
+        text: "Friendly staff and a wide selection of dishes. Loved it!",
+        user: "Frank Wilson"
+    },
+    {
+        rating: 3,
+        text: "Good place to dine, but service can be improved.",
+        user: "Grace Taylor"
+    },
+];
   return (
     <div className="customer-home-main">
-      <h2 className="rest-near-you">Restaurants Near You ({restaurants.length})</h2>
-      <div className="filter-container">
-        <label htmlFor="type">Filter by Type:</label>
-        <select id="type" name="type" value={restaurantType} onChange={handleTypeChange}>
-          <option value="All">All</option>
-          <option value="vegetarian">Vegetarian</option>
-          <option value="non-vegetarian">Non-Vegetarian</option>
-        </select>
-      </div>
-      <div className="restaurant-main-div">
-        {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard
-            key={restaurant.restaurantName}
-            restaurantName={restaurant.restaurantName}
-            rating={restaurant.rating}
-            type={restaurant.type}
-            openhours={restaurant.openhours}
-            id={restaurant._id}
-          />
-        ))}
-      </div>
+      <CarouselComponent />
+      <NearByRestaurant />
+      <RecipeComponent />
+      <ReviewCarousel reviews={reviews}/>
+      <Break/>
+      <Footer/>
     </div>
   );
 }
