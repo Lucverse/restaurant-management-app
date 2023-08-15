@@ -10,7 +10,6 @@ function App() {
       <Navigation/>
       <Break/>
       <AllRoutes/>
-      <Sidebar/>
     </div>
   );
 }
