@@ -1,4 +1,3 @@
-import './nothingtodisplay.css'
 import { FaBoxOpen } from 'react-icons/fa';
 
 function NothingToDisplay({ text = "It's empty for now" }) {

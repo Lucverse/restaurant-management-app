@@ -1,6 +1,6 @@
 function Break(){
     const style={
-        height:'63px',
+        height:'60px',
         backgroundColor:'white',
     };
     return(
