@@ -1,39 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import './Sidebar.css';
-
-function Sidebar() {
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
-    const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-    };
-
+import './Sidebar.css'
+function Sidebar({ isOpen, onClose }) {
     return (
-        <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-            <button className="sidebar-button" onClick={toggleSidebar}>
-                X
-            </button>
-            <ul className="sidebar-links">
-                <li>
-                    <NavLink to="/" onClick={toggleSidebar}>
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/orders" onClick={toggleSidebar}>
-                        Orders
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/recipe" onClick={toggleSidebar}>
-                        Recipe
-                    </NavLink>
-                </li>
+        <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+            <div className="sidebar-header">
+                <button className="close-button" onClick={onClose}>
+                    &times;
+                </button>
+            </div>
+            <ul className="sidebar-menu">
+                <NavLink to="/" className="sidebar-link" onClick={onClose}>
+                    Home
+                </NavLink>
+                <NavLink to="/orders" className="sidebar-link" onClick={onClose}>
+                    Orders
+                </NavLink>
+                <NavLink to="/recipe" className="sidebar-link" onClick={onClose}>
+                    Recipe
+                </NavLink>
             </ul>
         </div>
     );
 }
+
 export default Sidebar;
