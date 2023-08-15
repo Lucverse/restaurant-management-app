@@ -12,6 +12,7 @@ import RestaurantOrders from '../Orders/RestaurantOrders.jsx';
 import CustomerOrders from '../Orders/CustomerOrders.jsx'
 import RestaurantPage from '../RestaurantPage/RestaurantPage.jsx';
 import CartPage from '../CartPage/CartPage.jsx';
+import RecipePage from '../Recipe/RecipePage.jsx';
 
 function AllRoutes() {
   const isAuthenticated = useSelector(state => state.auth.isLoggedIn);
@@ -25,7 +26,7 @@ function AllRoutes() {
       <Route path="/signup" element={<SignupForm />} />
       {!isAuthenticated && (
         <>
-          <Route path="/" element={<LoginForm />} />
+          <Route path="/" element={<CustomerHomePage />} />
           <Route path="/*" element={<LoginForm />} />
         </>
       )}
@@ -41,7 +42,8 @@ function AllRoutes() {
       {isCustomer && (
         <>
           <Route path="/" element={<CustomerHomePage />} />
-          <Route path="/orders" element={<CustomerOrders />} />
+          <Route path="/orders" element={<CustomerOrders />} />          
+          <Route path="/recipe" element={<RecipePage />} />
           <Route path="/restaurants/:restaurantName" element={<RestaurantPage />} />
           <Route path="/cart" element={<CartPage />} />
         </>
