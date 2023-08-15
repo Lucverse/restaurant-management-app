@@ -1,5 +1,6 @@
 import './navigation.css'
 import React from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Sidebar from '../Sidebar/Sidebar';
@@ -13,9 +14,12 @@ function Navigation() {
     const cartLength = cartItems ? cartItems.length : 0;
     const userType = useSelector(state => state.auth);
     const isStaff = isLoggedIn ? userType.user.userType === 'staff' : '';
-    function print(){
-        console.log('clicked');
-    }
+    
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
     return (
         <nav className='nav-bar'>
             <div className="logo">
@@ -58,7 +62,7 @@ function Navigation() {
                             <NavLink to='/account' activeclassname='active-link' data-item='Profile'>
                                 <FontAwesomeIcon icon={faUserLarge} style={{ mixBlendMode: 'multiply', fontSize: '20px' }} />
                             </NavLink>
-                            <button className="sidebar-button" onClick={print}> 
+                            <button className="sidebar-button" onClick={toggleSidebar}>
                                 <FontAwesomeIcon icon={faBars} />
                             </button>
                         </div>
@@ -74,6 +78,7 @@ function Navigation() {
                     </ul>
             }
 
+            <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
         </nav>
     );
 }
