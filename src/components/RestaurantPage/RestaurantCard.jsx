@@ -1,35 +1,44 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './restaurantcard.css';
+import './card.css';
+import backgroundImage from '../../media/bird.jpeg';
+import GetIcon from './getIcon.jsx';
 
-function RestaurantCard({ restaurantName, rating, type, openhours }) {
-    let icon = null;
+function RestaurantCard({ restaurantName, rating, type, openhours, description }) {
+    const [isHovered, setIsHovered] = useState(false);
+    const icon = GetIcon(type);
 
-    if (type === 'vegetarian') {
-        icon = <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Indian-vegetarian-mark.svg" className="item-card-type" alt="veg" />;
-    } else if (type === 'non-vegetarian') {
-        icon = <img src="https://foodsafetyhelpline.com/wp-content/uploads/2013/05/non-veg-300x259.jpg" className="item-card-type" alt="non-veg"/>;
-    } else {
-        icon = (
-            <div className='restaurant-type-icon both'>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Indian-vegetarian-mark.svg" alt="veg" />
-                <img src="https://foodsafetyhelpline.com/wp-content/uploads/2013/05/non-veg-300x259.jpg"  alt="non-veg"/>
-            </div>
-        );
-    }
+    const handleTouchStart = () => {
+        setIsHovered(true);
+    };
+
+    const handleTouchEnd = () => {
+        setIsHovered(false);
+    };
 
     return (
-        <div>
-            <div className="restaurant-card">
-                {icon}
-                <Link to={`/restaurants/${restaurantName}`} state={{ name: restaurantName }}>
-                    <h1>{restaurantName}</h1>
-                    <div className='restaurant-card-info'>
-                        <p>Rating: {rating}</p>
-                        <p>Open hours: {openhours}</p>
+        <Link to={`/restaurants/${restaurantName}`}>
+            <div
+                className={`col ${isHovered ? 'hover' : ''}`}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+            >
+                <div className="container">
+                    <div className="front" style={{ backgroundImage: `url(${backgroundImage})` }}>
+                        <div className="inner">
+                            {/* {icon} */}
+                            <p>{restaurantName}</p>
+                            <span>Rating: {rating}</span>
+                        </div>
                     </div>
-                </Link>
+                    <div className="back">
+                        <div className="inner">
+                            <p>{description}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </Link>
     );
 }
 
