@@ -77,3 +77,8 @@
     color: #eeeeee;
     text-shadow: 2px 2px 4px rgba(4, 31, 12, 0.5); /* Adding a subtle shadow */
 }
+@media only screen and (max-width: 768px) {
+    .carousel-container{
+        display: none;
+    }
+}
