@@ -7,7 +7,7 @@ function RecipeComponent() {
             <div className='recipe-content'>
                 <h1>Subscribe to recipes every week</h1>
                 <p>Elevate your culinary journey with a weekly recipe subscription, delivering the cherished flavors of your favorite restaurants to your home. Delight in restaurant-quality meals, conveniently crafted just for you.</p>
-                <button className='learn-more'>Learn More</button>
+                <button clabssName='learn-more'>Learn More</button>
             </div>
         </div>
     )
