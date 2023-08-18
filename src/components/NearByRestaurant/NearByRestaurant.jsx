@@ -49,6 +49,7 @@ function NearByRestaurant() {
             key={restaurant.restaurantName}
             restaurantName={restaurant.restaurantName}
             rating={restaurant.rating}
+            description={restaurant.description}
             type={restaurant.type}
             openhours={restaurant.openhours}
             id={restaurant._id}
