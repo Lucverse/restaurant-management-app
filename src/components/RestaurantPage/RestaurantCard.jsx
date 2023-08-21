@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './card.css';
-import backgroundImage from '../../media/bird.jpeg';
+import backgroundImage from '../../media/restaurant-building.png';
 import GetIcon from './getIcon.jsx';
 
 function RestaurantCard({ restaurantName, rating, type, openhours, description }) {
