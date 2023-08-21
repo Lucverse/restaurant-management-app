@@ -54,7 +54,7 @@
     padding: 5%;
 }
 
-.learn-more {
+.recipe-content .learn-more {
     width: 200px;
     height: 50px;
     color: white;
@@ -64,7 +64,6 @@
     border-radius: 7px;
     outline: none;
 }
-
 .learn-more:hover {
     cursor: pointer;
     background-color: #41707a;
