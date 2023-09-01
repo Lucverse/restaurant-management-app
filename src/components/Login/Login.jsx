@@ -34,7 +34,7 @@ const LoginForm = () => {
       setAlertMessage(error);
       setShowAlert(true);
     }
-    if(user){
+    if (user) {
       showAlertsuccess();
     }
   }, [error, user]);

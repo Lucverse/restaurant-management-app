@@ -42,7 +42,7 @@ function AllRoutes() {
       {isCustomer && (
         <>
           <Route path="/" element={<CustomerHomePage />} />
-          <Route path="/orders" element={<CustomerOrders />} />          
+          <Route path="/orders" element={<CustomerOrders />} />
           <Route path="/recipe" element={<RecipePage />} />
           <Route path="/restaurants/:restaurantName" element={<RestaurantPage />} />
           <Route path="/cart" element={<CartPage />} />

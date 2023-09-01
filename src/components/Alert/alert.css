@@ -59,12 +59,15 @@
     transition: width 2s linear;
     border-radius: 7px;
 }
-.progress.success{
+
+.progress.success {
     background-color: green;
 }
-.progress.error{
+
+.progress.error {
     background-color: #c0392b;
 }
+
 .progress.active {
     width: 0%;
 }

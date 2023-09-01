@@ -12,7 +12,7 @@ function StaffHomePage() {
     const isRestaurant = useSelector(state => state.auth.user.restaurantName);
     const user = useSelector(state => state.auth.user);
     const restaurantName = isRestaurant ? user.restaurantName : null;
-    
+
     const filteredItems = items.filter(item => item.restaurantName === restaurantName);
     const totalItems = filteredItems.length;
 
@@ -63,7 +63,7 @@ function StaffHomePage() {
                     {showAddItem && <AddItem onCancel={handleCancel} />}
                 </>
             ) : (
-                <RegisterRestaurantFirst/>
+                <RegisterRestaurantFirst />
             )}
         </div>
     );

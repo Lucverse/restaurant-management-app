@@ -1,9 +1,9 @@
-function Break(){
-    const style={
-        height:'60px',
-        backgroundColor:'white',
+function Break() {
+    const style = {
+        height: '60px',
+        backgroundColor: 'white',
     };
-    return(
+    return (
         <div className="break" style={style}>
 
         </div>
