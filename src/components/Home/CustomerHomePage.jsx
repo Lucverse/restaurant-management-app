@@ -1,5 +1,6 @@
 import Break from "../Break/Break";
 import CarouselComponent from "../Carousel/CarouselComponent";
+import Dish from "../Dish/Dish";
 import Footer from "../Footer/Footer";
 import NearByRestaurant from "../NearByRestaurant/NearByRestaurant";
 import RecipeComponent from "../Recipe/RecipeComponent";
@@ -48,6 +49,7 @@ function CustomerHomePage() {
       <CarouselComponent />
       <NearByRestaurant />
       <RecipeComponent />
+      <Dish/>
       <ReviewCarousel reviews={reviews} />
       <Break />
       <Footer />

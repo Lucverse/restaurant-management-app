@@ -1,0 +1,15 @@
+.dish-grid-container{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    gap: 20px;
+    justify-content: space-evenly;
+}
+.dish-main a{
+    text-decoration: none;
+    color: black;
+}
+.dish-main{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 50px;
+}
